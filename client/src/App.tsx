@@ -1,4 +1,4 @@
-import { Switch, Route } from "wouter";
+import { Switch, Route, Router } from "wouter";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
@@ -8,7 +8,7 @@ import Landing from "@/pages/landing";
 import Dashboard from "@/pages/dashboard";
 import { AuthProvider, useAuth } from "@/lib/auth";
 
-function Router() {
+function AppRouter() {
   const { user, isLoading } = useAuth();
 
   if (isLoading) {
@@ -36,12 +36,17 @@ function Router() {
 }
 
 function App() {
+  // Get base path for GitHub Pages deployment
+  const basePath = import.meta.env.PROD ? "/PropManPulse" : "";
+  
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <AuthProvider>
-          <Toaster />
-          <Router />
+          <Router base={basePath}>
+            <Toaster />
+            <AppRouter />
+          </Router>
         </AuthProvider>
       </TooltipProvider>
     </QueryClientProvider>
