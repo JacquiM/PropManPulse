@@ -1,0 +1,1237 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PropManPulse - Your Pulse on Property Management Excellence</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/heroicons@2.0.16/24/outline/index.js" type="module"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                        'mono': ['JetBrains Mono', 'monospace']
+                    },
+                    colors: {
+                        primary: {
+                            50: '#eff6ff',
+                            500: '#2563eb',
+                            600: '#1d4ed8',
+                            700: '#1e40af'
+                        },
+                        secondary: {
+                            500: '#059669',
+                            600: '#047857'
+                        },
+                        accent: {
+                            500: '#7c3aed',
+                            600: '#6d28d9'
+                        }
+                    }
+                }
+            }
+        };
+    </script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .animate-counter { animation: counter 2s ease-out forwards; }
+        @keyframes counter {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+        }
+        .chart-placeholder {
+            background: linear-gradient(45deg, #f1f5f9 25%, transparent 25%),
+                        linear-gradient(-45deg, #f1f5f9 25%, transparent 25%),
+                        linear-gradient(45deg, transparent 75%, #f1f5f9 75%),
+                        linear-gradient(-45deg, transparent 75%, #f1f5f9 75%);
+            background-size: 20px 20px;
+            background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-inter">
+    <!-- Landing Page -->
+    <div id="landing-page" class="min-h-screen">
+        <!-- Header -->
+        <header class="bg-white shadow-sm sticky top-0 z-40">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-16">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0 flex items-center">
+                            <div class="w-10 h-10 bg-primary-500 rounded-lg flex items-center justify-center">
+                                <span class="text-white font-bold text-lg">P</span>
+                            </div>
+                            <span class="ml-2 text-xl font-bold text-gray-900">PropManPulse</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <button onclick="showLoginModal()" class="text-primary-600 hover:text-primary-700 font-medium">
+                            Sign In
+                        </button>
+                        <button onclick="showDemoModal()" class="bg-primary-500 hover:bg-primary-600 text-white px-4 py-2 rounded-lg font-medium transition">
+                            Book Demo
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <!-- A modern urban property management office with multiple screens showing dashboards -->
+        <div class="gradient-bg text-white" style="background-image: linear-gradient(rgba(37, 99, 235, 0.9), rgba(30, 64, 175, 0.9)), url('https://images.unsplash.com/photo-1560472355-536de3962603?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'); background-size: cover; background-position: center;">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+                <div class="text-center">
+                    <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                        The most advanced end-to-end ecosystem for
+                    </h1>
+                    <div class="text-2xl md:text-3xl font-semibold mb-8 space-y-2">
+                        <div class="bg-white/20 backdrop-blur-sm rounded-lg p-4 inline-block mx-2 mb-2">Community Schemes</div>
+                        <div class="bg-white/20 backdrop-blur-sm rounded-lg p-4 inline-block mx-2 mb-2">Rental Portfolios</div>
+                        <div class="bg-white/20 backdrop-blur-sm rounded-lg p-4 inline-block mx-2 mb-2">Maintenance & Inspections</div>
+                        <div class="bg-white/20 backdrop-blur-sm rounded-lg p-4 inline-block mx-2 mb-2">Compliance & Governance</div>
+                    </div>
+                    <p class="text-xl mb-8 max-w-3xl mx-auto text-white/90">
+                        Your Pulse on Property Management Excellence - Experience the difference with intelligent, integrated solutions.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <button onclick="showDemoModal()" class="bg-white text-primary-600 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold text-lg transition">
+                            Book a Demo
+                        </button>
+                        <button onclick="showLoginModal()" class="border-2 border-white text-white hover:bg-white hover:text-primary-600 px-8 py-4 rounded-lg font-semibold text-lg transition">
+                            Sign In to Platform
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Solutions Overview -->
+        <div class="py-24 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Solutions at a Glance</h2>
+                    <p class="text-xl text-gray-600">Comprehensive modules working together as one integrated platform</p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="bg-white border-2 border-gray-200 rounded-xl p-6 hover:border-primary-500 hover:shadow-lg transition">
+                        <div class="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Community Management</h3>
+                        <p class="text-gray-600 mb-4">Complete body corporate and HOA management with financial tracking, compliance monitoring, and stakeholder communication.</p>
+                        <div class="text-sm text-primary-600 font-medium">Body Corporate • HOA Management • Financial Reports</div>
+                    </div>
+
+                    <div class="bg-white border-2 border-gray-200 rounded-xl p-6 hover:border-secondary-500 hover:shadow-lg transition">
+                        <div class="w-12 h-12 bg-secondary-100 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-secondary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2V7zm0 0V5a2 2 0 012-2h6l2 2h6a2 2 0 012 2v2H3z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Rental Asset Management</h3>
+                        <p class="text-gray-600 mb-4">Comprehensive rental portfolio management with tenant tracking, lease management, and automated financial workflows.</p>
+                        <div class="text-sm text-secondary-600 font-medium">Portfolio Overview • Tenant Management • Lease Tracking</div>
+                    </div>
+
+                    <div class="bg-white border-2 border-gray-200 rounded-xl p-6 hover:border-accent-500 hover:shadow-lg transition">
+                        <div class="w-12 h-12 bg-accent-100 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-accent-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Maintenance & Inspections</h3>
+                        <p class="text-gray-600 mb-4">Professional inspection management with maintenance ticket tracking, workflow automation, and detailed reporting.</p>
+                        <div class="text-sm text-accent-600 font-medium">Inspection Reports • Maintenance Tickets • Photo Documentation</div>
+                    </div>
+
+                    <div class="bg-white border-2 border-gray-200 rounded-xl p-6 hover:border-orange-500 hover:shadow-lg transition">
+                        <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Compliance & Governance</h3>
+                        <p class="text-gray-600 mb-4">Regulatory compliance tracking, governance workflows, audit trail management, and automated alert systems.</p>
+                        <div class="text-sm text-orange-600 font-medium">Compliance Calendar • Audit Trails • Regulatory Reports</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats Section -->
+        <div class="py-16 bg-gray-900 text-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold mb-4">Join 20,000+ Property Professionals using PropManPulse</h2>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-8 text-center">
+                    <div class="animate-counter">
+                        <div class="text-4xl md:text-5xl font-bold mb-2 text-primary-400">750,000+</div>
+                        <div class="text-lg text-gray-300">Units Under Management</div>
+                    </div>
+                    <div class="animate-counter">
+                        <div class="text-4xl md:text-5xl font-bold mb-2 text-secondary-400">2,500+</div>
+                        <div class="text-lg text-gray-300">Active Clients</div>
+                    </div>
+                    <div class="animate-counter">
+                        <div class="text-4xl md:text-5xl font-bold mb-2 text-accent-400">50,000+</div>
+                        <div class="text-lg text-gray-300">Registered Users</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Benefits Section -->
+        <div class="py-24 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Your Biggest Challenges, Solved</h2>
+                    <p class="text-xl text-gray-600">Simple solutions delivered with finesse from first-hand property experience</p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Compliance</h3>
+                        <p class="text-gray-600">Time-consuming compliance transformed into efficient, monitored workflows via our intuitive platform.</p>
+                    </div>
+
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-secondary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-secondary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Manageability</h3>
+                        <p class="text-gray-600">Intelligent dashboards with real-time KPI tracking and effortless departmental collaboration.</p>
+                    </div>
+
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-accent-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-accent-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Scalability</h3>
+                        <p class="text-gray-600">Efficiency + manageability = scalability. Keep your pulse on business for sustainable growth.</p>
+                    </div>
+
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Profitability</h3>
+                        <p class="text-gray-600">Complete compliance, manageability and scalability drives profit. The boost your bottom line needed.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Demo Booking Modal -->
+    <div id="demo-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-xl max-w-md w-full p-6">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-xl font-semibold text-gray-900">Book a Demo</h3>
+                <button onclick="hideDemoModal()" class="text-gray-400 hover:text-gray-600">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <form class="space-y-4" data-implementation="Should integrate with CRM/scheduling system">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                    <input type="email" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-primary-500 focus:border-primary-500" data-mock="true" placeholder="your@email.com">
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">First Name</label>
+                        <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-primary-500 focus:border-primary-500" data-mock="true" placeholder="John">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Last Name</label>
+                        <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-primary-500 focus:border-primary-500" data-mock="true" placeholder="Smith">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+                    <input type="tel" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-primary-500 focus:border-primary-500" data-mock="true" placeholder="+1 (555) 000-0000">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Company</label>
+                    <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-primary-500 focus:border-primary-500" data-mock="true" placeholder="Your Property Management Company">
+                </div>
+                <div class="flex items-start">
+                    <input type="checkbox" class="mt-1 h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 rounded">
+                    <label class="ml-2 text-sm text-gray-600">
+                        I have read and accept PropManPulse's <a href="#" class="text-primary-600 hover:underline">Terms of Use</a> and <a href="#" class="text-primary-600 hover:underline">Privacy Policy</a>
+                    </label>
+                </div>
+                <button type="submit" class="w-full bg-primary-500 hover:bg-primary-600 text-white py-2 rounded-lg font-medium transition" data-event="click:handleDemoSubmit">
+                    Book Demo
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div id="login-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-xl max-w-md w-full p-6">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-xl font-semibold text-gray-900">Sign in to your account</h3>
+                <button onclick="hideLoginModal()" class="text-gray-400 hover:text-gray-600">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <p class="text-gray-600 mb-6">Please select the account type you are registered with:</p>
+            
+            <div class="space-y-3">
+                <button onclick="loginAsRole('admin')" class="w-full p-4 text-left border-2 border-gray-200 rounded-lg hover:border-primary-500 hover:bg-primary-50 transition">
+                    <div class="font-semibold text-gray-900">System Administrator</div>
+                    <div class="text-sm text-gray-600">Full platform access and user management</div>
+                </button>
+                
+                <button onclick="loginAsRole('manager')" class="w-full p-4 text-left border-2 border-gray-200 rounded-lg hover:border-primary-500 hover:bg-primary-50 transition">
+                    <div class="font-semibold text-gray-900">Property Manager</div>
+                    <div class="text-sm text-gray-600">Portfolio management and operations oversight</div>
+                </button>
+                
+                <button onclick="loginAsRole('owner')" class="w-full p-4 text-left border-2 border-gray-200 rounded-lg hover:border-primary-500 hover:bg-primary-50 transition">
+                    <div class="font-semibold text-gray-900">Property Owner</div>
+                    <div class="text-sm text-gray-600">Property performance and financial reports</div>
+                </button>
+                
+                <button onclick="loginAsRole('tenant')" class="w-full p-4 text-left border-2 border-gray-200 rounded-lg hover:border-primary-500 hover:bg-primary-50 transition">
+                    <div class="font-semibold text-gray-900">Tenant Portal</div>
+                    <div class="text-sm text-gray-600">Maintenance requests and payment history</div>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Dashboard (Hidden initially) -->
+    <div id="main-dashboard" class="hidden min-h-screen bg-gray-50">
+        <!-- Top Navigation -->
+        <nav class="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-30">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-16">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0 flex items-center">
+                            <div class="w-8 h-8 bg-primary-500 rounded-lg flex items-center justify-center">
+                                <span class="text-white font-bold">P</span>
+                            </div>
+                            <span class="ml-2 text-lg font-bold text-gray-900">PropManPulse</span>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center space-x-4">
+                        <div class="hidden md:block">
+                            <span class="text-sm text-gray-500">Logged in as:</span>
+                            <span id="user-role-display" class="text-sm font-medium text-gray-900 ml-1">Admin</span>
+                        </div>
+                        <button class="bg-gray-100 p-2 rounded-lg hover:bg-gray-200 transition">
+                            <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-5 5v-5z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17H4l5 5v-5z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7H4l5-5v5z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7h5l-5-5v5z"></path>
+                            </svg>
+                        </button>
+                        <button onclick="logout()" class="text-sm text-gray-600 hover:text-gray-900">Sign Out</button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <div class="flex">
+            <!-- Sidebar -->
+            <div class="w-64 bg-white shadow-sm h-screen sticky top-16 overflow-y-auto">
+                <div class="p-4">
+                    <div class="space-y-2">
+                        <button onclick="showDashboardSection('overview')" class="dashboard-nav-btn w-full flex items-center px-4 py-3 text-left rounded-lg hover:bg-gray-100 transition">
+                            <svg class="w-5 h-5 mr-3 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                            </svg>
+                            <span class="font-medium text-gray-900">Dashboard Overview</span>
+                        </button>
+
+                        <button onclick="showDashboardSection('community')" class="dashboard-nav-btn w-full flex items-center px-4 py-3 text-left rounded-lg hover:bg-gray-100 transition">
+                            <svg class="w-5 h-5 mr-3 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                            </svg>
+                            <span class="font-medium text-gray-900">Community Management</span>
+                        </button>
+
+                        <button onclick="showDashboardSection('rental')" class="dashboard-nav-btn w-full flex items-center px-4 py-3 text-left rounded-lg hover:bg-gray-100 transition">
+                            <svg class="w-5 h-5 mr-3 text-secondary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2V7zm0 0V5a2 2 0 012-2h6l2 2h6a2 2 0 012 2v2H3z"></path>
+                            </svg>
+                            <span class="font-medium text-gray-900">Rental Management</span>
+                        </button>
+
+                        <button onclick="showDashboardSection('maintenance')" class="dashboard-nav-btn w-full flex items-center px-4 py-3 text-left rounded-lg hover:bg-gray-100 transition">
+                            <svg class="w-5 h-5 mr-3 text-accent-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <span class="font-medium text-gray-900">Maintenance & Inspections</span>
+                        </button>
+
+                        <button onclick="showDashboardSection('compliance')" class="dashboard-nav-btn w-full flex items-center px-4 py-3 text-left rounded-lg hover:bg-gray-100 transition">
+                            <svg class="w-5 h-5 mr-3 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                            </svg>
+                            <span class="font-medium text-gray-900">Compliance & Governance</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="flex-1 p-8">
+                <!-- Dashboard Overview -->
+                <div id="overview-section" class="dashboard-section">
+                    <div class="mb-8">
+                        <h1 class="text-2xl font-bold text-gray-900 mb-2">Dashboard Overview</h1>
+                        <p class="text-gray-600">Your comprehensive view of property management performance</p>
+                    </div>
+
+                    <!-- KPI Cards -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                        <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-200">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                                    </svg>
+                                </div>
+                                <span class="text-sm text-green-600 bg-green-100 px-2 py-1 rounded">+12%</span>
+                            </div>
+                            <div class="text-2xl font-bold text-gray-900 mb-1" data-bind="kpis.totalProperties">2,847</div>
+                            <div class="text-sm text-gray-600">Total Properties</div>
+                        </div>
+
+                        <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-200">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-12 h-12 bg-secondary-100 rounded-lg flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-secondary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                                    </svg>
+                                </div>
+                                <span class="text-sm text-green-600 bg-green-100 px-2 py-1 rounded">+8%</span>
+                            </div>
+                            <div class="text-2xl font-bold text-gray-900 mb-1" data-bind="kpis.activeTenants">4,521</div>
+                            <div class="text-sm text-gray-600">Active Tenants</div>
+                        </div>
+
+                        <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-200">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-12 h-12 bg-accent-100 rounded-lg flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-accent-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                </div>
+                                <span class="text-sm text-orange-600 bg-orange-100 px-2 py-1 rounded">-3%</span>
+                            </div>
+                            <div class="text-2xl font-bold text-gray-900 mb-1" data-bind="kpis.openTickets">127</div>
+                            <div class="text-sm text-gray-600">Open Maintenance</div>
+                        </div>
+
+                        <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-200">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                                    </svg>
+                                </div>
+                                <span class="text-sm text-green-600 bg-green-100 px-2 py-1 rounded">98.5%</span>
+                            </div>
+                            <div class="text-2xl font-bold text-gray-900 mb-1" data-bind="kpis.complianceScore">98.5%</div>
+                            <div class="text-sm text-gray-600">Compliance Score</div>
+                        </div>
+                    </div>
+
+                    <!-- Charts Row -->
+                    <div class="grid lg:grid-cols-2 gap-8 mb-8">
+                        <!-- Revenue Chart -->
+                        <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-200">
+                            <div class="flex items-center justify-between mb-6">
+                                <h3 class="text-lg font-semibold text-gray-900">Revenue Trends</h3>
+                                <select class="text-sm border border-gray-300 rounded-lg px-3 py-1 text-gray-600">
+                                    <option>Last 12 months</option>
+                                    <option>Last 6 months</option>
+                                    <option>Last 3 months</option>
+                                </select>
+                            </div>
+                            <div class="chart-placeholder h-64 rounded-lg flex items-center justify-center">
+                                <div class="text-center text-gray-500">
+                                    <div class="text-4xl mb-2">📊</div>
+                                    <div>Revenue Chart Visualization</div>
+                                    <div class="text-sm mt-1">Real charts would integrate with Chart.js or similar</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Property Types Breakdown -->
+                        <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-200">
+                            <div class="flex items-center justify-between mb-6">
+                                <h3 class="text-lg font-semibold text-gray-900">Property Types</h3>
+                                <div class="text-sm text-gray-600">Total: 2,847</div>
+                            </div>
+                            <div class="space-y-4">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center">
+                                        <div class="w-3 h-3 bg-primary-500 rounded-full mr-3"></div>
+                                        <span class="text-sm text-gray-700">Residential Units</span>
+                                    </div>
+                                    <div class="text-sm font-medium text-gray-900">1,894 (66.5%)</div>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center">
+                                        <div class="w-3 h-3 bg-secondary-500 rounded-full mr-3"></div>
+                                        <span class="text-sm text-gray-700">Commercial Properties</span>
+                                    </div>
+                                    <div class="text-sm font-medium text-gray-900">627 (22.0%)</div>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center">
+                                        <div class="w-3 h-3 bg-accent-500 rounded-full mr-3"></div>
+                                        <span class="text-sm text-gray-700">Community Schemes</span>
+                                    </div>
+                                    <div class="text-sm font-medium text-gray-900">326 (11.5%)</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recent Activity -->
+                    <div class="bg-white rounded-xl shadow-sm border border-gray-200">
+                        <div class="p-6 border-b border-gray-200">
+                            <div class="flex items-center justify-between">
+                                <h3 class="text-lg font-semibold text-gray-900">Recent Activity</h3>
+                                <button class="text-sm text-primary-600 hover:text-primary-700">View All</button>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="space-y-4">
+                                <!-- @MAP: recentActivity.map(activity => ( -->
+                                <div class="flex items-start space-x-3" data-mock="true">
+                                    <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                        <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="flex-1 min-w-0">
+                                        <div class="text-sm font-medium text-gray-900">Maintenance ticket #MT-2024-0847 completed</div>
+                                        <div class="text-sm text-gray-500">Oceanview Apartments - Unit 204 - Plumbing repair</div>
+                                        <div class="text-xs text-gray-400 mt-1">2 hours ago</div>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start space-x-3" data-mock="true">
+                                    <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                        <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="flex-1 min-w-0">
+                                        <div class="text-sm font-medium text-gray-900">New tenant registered</div>
+                                        <div class="text-sm text-gray-500">Sarah Johnson - Riverside Complex - Unit 142</div>
+                                        <div class="text-xs text-gray-400 mt-1">4 hours ago</div>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start space-x-3" data-mock="true">
+                                    <div class="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                        <svg class="w-4 h-4 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="flex-1 min-w-0">
+                                        <div class="text-sm font-medium text-gray-900">Compliance deadline approaching</div>
+                                        <div class="text-sm text-gray-500">Garden Heights HOA - Annual Financial Audit due in 5 days</div>
+                                        <div class="text-xs text-gray-400 mt-1">6 hours ago</div>
+                                    </div>
+                                </div>
+                                <!-- @END_MAP )) -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Community Management Section -->
+                <div id="community-section" class="dashboard-section hidden">
+                    <div class="mb-8">
+                        <h1 class="text-2xl font-bold text-gray-900 mb-2">Community Management</h1>
+                        <p class="text-gray-600">Body Corporate & HOA management with financial tracking and compliance</p>
+                    </div>
+
+                    <!-- Community Management KPIs -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                        <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-200">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                                    </svg>
+                                </div>
+                                <span class="text-sm text-green-600 bg-green-100 px-2 py-1 rounded">+5%</span>
+                            </div>
+                            <div class="text-2xl font-bold text-gray-900 mb-1">164</div>
+                            <div class="text-sm text-gray-600">Active Communities</div>
+                        </div>
+
+                        <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-200">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-12 h-12 bg-secondary-100 rounded-lg flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-secondary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
+                                    </svg>
+                                </div>
+                                <span class="text-sm text-green-600 bg-green-100 px-2 py-1 rounded">+12%</span>
+                            </div>
+                            <div class="text-2xl font-bold text-gray-900 mb-1">$2.4M</div>
+                            <div class="text-sm text-gray-600">Total Levies Collected</div>
+                        </div>
+
+                        <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-200">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                                    </svg>
+                                </div>
+                                <span class="text-sm text-red-600 bg-red-100 px-2 py-1 rounded">3 urgent</span>
+                            </div>
+                            <div class="text-2xl font-bold text-gray-900 mb-1">18</div>
+                            <div class="text-sm text-gray-600">Pending Compliance</div>
+                        </div>
+                    </div>
+
+                    <!-- Community Actions -->
+                    <div class="grid lg:grid-cols-2 gap-8 mb-8">
+                        <!-- Financial Overview -->
+                        <!-- Modern office building complex representing community management -->
+                        <div class="bg-white rounded-xl shadow-sm border border-gray-200" style="background-image: linear-gradient(rgba(255,255,255,0.95), rgba(255,255,255,0.95)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400'); background-size: cover; background-position: center;">
+                            <div class="p-6">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-4">Financial Management</h3>
+                                <div class="space-y-3">
+                                    <button class="w-full flex items-center justify-between p-3 bg-white border border-gray-200 rounded-lg hover:bg-gray-50 transition">
+                                        <div class="flex items-center">
+                                            <svg class="w-5 h-5 text-primary-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                                            </svg>
+                                            <span class="text-sm font-medium">Levy Processing</span>
+                                        </div>
+                                        <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                        </svg>
+                                    </button>
+                                    <button class="w-full flex items-center justify-between p-3 bg-white border border-gray-200 rounded-lg hover:bg-gray-50 transition">
+                                        <div class="flex items-center">
+                                            <svg class="w-5 h-5 text-secondary-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                                            </svg>
+                                            <span class="text-sm font-medium">Financial Reports</span>
+                                        </div>
+                                        <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                        </svg>
+                                    </button>
+                                    <button class="w-full flex items-center justify-between p-3 bg-white border border-gray-200 rounded-lg hover:bg-gray-50 transition">
+                                        <div class="flex items-center">
+                                            <svg class="w-5 h-5 text-orange-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                            </svg>
+                                            <span class="text-sm font-medium">Arrears Management</span>
+                                        </div>
+                                        <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Recent Communities -->
+                        <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-200">
+                            <div class="flex items-center justify-between mb-6">
+                                <h3 class="text-lg font-semibold text-gray-900">Recent Communities</h3>
+                                <button class="text-sm text-primary-600 hover:text-primary-700">View All</button>
+                            </div>
+                            <div class="space-y-4">
+                                <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg" data-mock="true">
+                                    <div class="flex-1">
+                                        <div class="text-sm font-medium text-gray-900">Garden Heights HOA</div>
+                                        <div class="text-xs text-gray-500">142 Units • Active</div>
+                                    </div>
+                                    <div class="text-right">
+                                        <div class="text-sm font-medium text-green-600">98.5%</div>
+                                        <div class="text-xs text-gray-500">Compliance</div>
+                                    </div>
+                                </div>
+                                <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg" data-mock="true">
+                                    <div class="flex-1">
+                                        <div class="text-sm font-medium text-gray-900">Oceanview Apartments</div>
+                                        <div class="text-xs text-gray-500">78 Units • Active</div>
+                                    </div>
+                                    <div class="text-right">
+                                        <div class="text-sm font-medium text-orange-600">87.2%</div>
+                                        <div class="text-xs text-gray-500">Compliance</div>
+                                    </div>
+                                </div>
+                                <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg" data-mock="true">
+                                    <div class="flex-1">
+                                        <div class="text-sm font-medium text-gray-900">Riverside Complex</div>
+                                        <div class="text-xs text-gray-500">204 Units • Active</div>
+                                    </div>
+                                    <div class="text-right">
+                                        <div class="text-sm font-medium text-green-600">95.8%</div>
+                                        <div class="text-xs text-gray-500">Compliance</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Rental Management Section -->
+                <div id="rental-section" class="dashboard-section hidden">
+                    <div class="mb-8">
+                        <h1 class="text-2xl font-bold text-gray-900 mb-2">Rental Asset Management</h1>
+                        <p class="text-gray-600">Comprehensive rental portfolio management and tenant services</p>
+                    </div>
+
+                    <!-- Rental KPIs -->
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+                        <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-200">
+                            <div class="text-2xl font-bold text-gray-900 mb-1" data-bind="rental.occupancyRate">94.2%</div>
+                            <div class="text-sm text-gray-600">Occupancy Rate</div>
+                            <div class="text-xs text-green-600 mt-1">+2.1% vs last month</div>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-200">
+                            <div class="text-2xl font-bold text-gray-900 mb-1" data-bind="rental.totalRent">$847K</div>
+                            <div class="text-sm text-gray-600">Monthly Rent Roll</div>
+                            <div class="text-xs text-green-600 mt-1">+5.7% vs last month</div>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-200">
+                            <div class="text-2xl font-bold text-gray-900 mb-1" data-bind="rental.avgDays">18</div>
+                            <div class="text-sm text-gray-600">Avg Days to Let</div>
+                            <div class="text-xs text-green-600 mt-1">-3 days improved</div>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-200">
+                            <div class="text-2xl font-bold text-gray-900 mb-1" data-bind="rental.arrears">$12.3K</div>
+                            <div class="text-sm text-gray-600">Outstanding Arrears</div>
+                            <div class="text-xs text-red-600 mt-1">+$2.1K vs last month</div>
+                        </div>
+                    </div>
+
+                    <!-- Portfolio Overview -->
+                    <!-- Professional property management office with rental portfolio displays -->
+                    <div class="bg-white rounded-xl shadow-sm border border-gray-200 mb-8" style="background-image: linear-gradient(rgba(255,255,255,0.95), rgba(255,255,255,0.95)), url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=400'); background-size: cover; background-position: center;">
+                        <div class="p-6">
+                            <div class="flex items-center justify-between mb-6">
+                                <h3 class="text-lg font-semibold text-gray-900">Portfolio Overview</h3>
+                                <div class="flex space-x-2">
+                                    <button class="px-4 py-2 bg-primary-500 text-white rounded-lg text-sm">Add Property</button>
+                                    <button class="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg text-sm">Export Report</button>
+                                </div>
+                            </div>
+                            
+                            <div class="overflow-x-auto">
+                                <table class="w-full">
+                                    <thead>
+                                        <tr class="text-left text-xs font-medium text-gray-500 uppercase border-b border-gray-200">
+                                            <th class="pb-3">Property</th>
+                                            <th class="pb-3">Type</th>
+                                            <th class="pb-3">Units</th>
+                                            <th class="pb-3">Occupied</th>
+                                            <th class="pb-3">Monthly Rent</th>
+                                            <th class="pb-3">Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-gray-200">
+                                        <tr data-mock="true">
+                                            <td class="py-3">
+                                                <div class="text-sm font-medium text-gray-900">Sunset Apartments</div>
+                                                <div class="text-xs text-gray-500">123 Main Street</div>
+                                            </td>
+                                            <td class="py-3 text-sm text-gray-600">Residential</td>
+                                            <td class="py-3 text-sm text-gray-600">24</td>
+                                            <td class="py-3 text-sm text-gray-600">22/24</td>
+                                            <td class="py-3 text-sm font-medium text-gray-900">$28,400</td>
+                                            <td class="py-3">
+                                                <span class="px-2 py-1 bg-green-100 text-green-800 rounded-full text-xs">Active</span>
+                                            </td>
+                                        </tr>
+                                        <tr data-mock="true">
+                                            <td class="py-3">
+                                                <div class="text-sm font-medium text-gray-900">Downtown Plaza</div>
+                                                <div class="text-xs text-gray-500">456 Business Ave</div>
+                                            </td>
+                                            <td class="py-3 text-sm text-gray-600">Commercial</td>
+                                            <td class="py-3 text-sm text-gray-600">8</td>
+                                            <td class="py-3 text-sm text-gray-600">7/8</td>
+                                            <td class="py-3 text-sm font-medium text-gray-900">$42,000</td>
+                                            <td class="py-3">
+                                                <span class="px-2 py-1 bg-green-100 text-green-800 rounded-full text-xs">Active</span>
+                                            </td>
+                                        </tr>
+                                        <tr data-mock="true">
+                                            <td class="py-3">
+                                                <div class="text-sm font-medium text-gray-900">Garden Villas</div>
+                                                <div class="text-xs text-gray-500">789 Garden Way</div>
+                                            </td>
+                                            <td class="py-3 text-sm text-gray-600">Townhouse</td>
+                                            <td class="py-3 text-sm text-gray-600">16</td>
+                                            <td class="py-3 text-sm text-gray-600">15/16</td>
+                                            <td class="py-3 text-sm font-medium text-gray-900">$35,200</td>
+                                            <td class="py-3">
+                                                <span class="px-2 py-1 bg-green-100 text-green-800 rounded-full text-xs">Active</span>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Maintenance Section -->
+                <div id="maintenance-section" class="dashboard-section hidden">
+                    <div class="mb-8">
+                        <h1 class="text-2xl font-bold text-gray-900 mb-2">Maintenance & Inspections</h1>
+                        <p class="text-gray-600">Professional inspection management and maintenance workflows</p>
+                    </div>
+
+                    <!-- Maintenance KPIs -->
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+                        <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-200">
+                            <div class="text-2xl font-bold text-gray-900 mb-1" data-bind="maintenance.openTickets">127</div>
+                            <div class="text-sm text-gray-600">Open Tickets</div>
+                            <div class="text-xs text-orange-600 mt-1">+8 new today</div>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-200">
+                            <div class="text-2xl font-bold text-gray-900 mb-1" data-bind="maintenance.avgResponse">2.4hrs</div>
+                            <div class="text-sm text-gray-600">Avg Response Time</div>
+                            <div class="text-xs text-green-600 mt-1">-0.3hrs improved</div>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-200">
+                            <div class="text-2xl font-bold text-gray-900 mb-1" data-bind="maintenance.completedMonth">284</div>
+                            <div class="text-sm text-gray-600">Completed This Month</div>
+                            <div class="text-xs text-green-600 mt-1">+12% vs last month</div>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-200">
+                            <div class="text-2xl font-bold text-gray-900 mb-1" data-bind="maintenance.inspectionsDue">42</div>
+                            <div class="text-sm text-gray-600">Inspections Due</div>
+                            <div class="text-xs text-red-600 mt-1">7 overdue</div>
+                        </div>
+                    </div>
+
+                    <!-- Maintenance Overview -->
+                    <div class="grid lg:grid-cols-2 gap-8 mb-8">
+                        <!-- Ticket Management -->
+                        <!-- Professional property inspection with clipboard and tools -->
+                        <div class="bg-white rounded-xl shadow-sm border border-gray-200" style="background-image: linear-gradient(rgba(255,255,255,0.95), rgba(255,255,255,0.95)), url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400'); background-size: cover; background-position: center;">
+                            <div class="p-6">
+                                <div class="flex items-center justify-between mb-6">
+                                    <h3 class="text-lg font-semibold text-gray-900">Active Tickets</h3>
+                                    <button class="px-4 py-2 bg-accent-500 text-white rounded-lg text-sm">New Ticket</button>
+                                </div>
+                                
+                                <div class="space-y-4">
+                                    <div class="bg-white border border-gray-200 rounded-lg p-4" data-mock="true">
+                                        <div class="flex items-start justify-between">
+                                            <div class="flex-1">
+                                                <div class="flex items-center space-x-2 mb-1">
+                                                    <span class="text-sm font-medium text-gray-900">#MT-2024-0851</span>
+                                                    <span class="px-2 py-1 bg-red-100 text-red-800 rounded-full text-xs">Urgent</span>
+                                                </div>
+                                                <div class="text-sm text-gray-600 mb-2">Water leak in kitchen ceiling - Unit 302</div>
+                                                <div class="text-xs text-gray-500">Garden Heights • Reported 2 hours ago</div>
+                                            </div>
+                                            <button class="text-accent-600 hover:text-accent-700">
+                                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <div class="bg-white border border-gray-200 rounded-lg p-4" data-mock="true">
+                                        <div class="flex items-start justify-between">
+                                            <div class="flex-1">
+                                                <div class="flex items-center space-x-2 mb-1">
+                                                    <span class="text-sm font-medium text-gray-900">#MT-2024-0850</span>
+                                                    <span class="px-2 py-1 bg-yellow-100 text-yellow-800 rounded-full text-xs">Medium</span>
+                                                </div>
+                                                <div class="text-sm text-gray-600 mb-2">HVAC system maintenance required</div>
+                                                <div class="text-xs text-gray-500">Sunset Apartments • Reported 1 day ago</div>
+                                            </div>
+                                            <button class="text-accent-600 hover:text-accent-700">
+                                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <div class="bg-white border border-gray-200 rounded-lg p-4" data-mock="true">
+                                        <div class="flex items-start justify-between">
+                                            <div class="flex-1">
+                                                <div class="flex items-center space-x-2 mb-1">
+                                                    <span class="text-sm font-medium text-gray-900">#MT-2024-0849</span>
+                                                    <span class="px-2 py-1 bg-green-100 text-green-800 rounded-full text-xs">Low</span>
+                                                </div>
+                                                <div class="text-sm text-gray-600 mb-2">Light bulb replacement in hallway</div>
+                                                <div class="text-xs text-gray-500">Oceanview • Reported 2 days ago</div>
+                                            </div>
+                                            <button class="text-accent-600 hover:text-accent-700">
+                                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Inspection Schedule -->
+                        <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-200">
+                            <div class="flex items-center justify-between mb-6">
+                                <h3 class="text-lg font-semibold text-gray-900">Upcoming Inspections</h3>
+                                <button class="px-4 py-2 bg-accent-500 text-white rounded-lg text-sm">Schedule</button>
+                            </div>
+                            
+                            <div class="space-y-4">
+                                <div class="flex items-center justify-between p-3 bg-red-50 border border-red-200 rounded-lg" data-mock="true">
+                                    <div class="flex-1">
+                                        <div class="text-sm font-medium text-gray-900">Unit 142 - Annual Inspection</div>
+                                        <div class="text-xs text-gray-500">Riverside Complex • Overdue by 3 days</div>
+                                    </div>
+                                    <div class="text-xs text-red-600 font-medium">OVERDUE</div>
+                                </div>
+
+                                <div class="flex items-center justify-between p-3 bg-orange-50 border border-orange-200 rounded-lg" data-mock="true">
+                                    <div class="flex-1">
+                                        <div class="text-sm font-medium text-gray-900">Unit 78 - Move-out Inspection</div>
+                                        <div class="text-xs text-gray-500">Garden Heights • Due tomorrow</div>
+                                    </div>
+                                    <div class="text-xs text-orange-600 font-medium">DUE SOON</div>
+                                </div>
+
+                                <div class="flex items-center justify-between p-3 bg-blue-50 border border-blue-200 rounded-lg" data-mock="true">
+                                    <div class="flex-1">
+                                        <div class="text-sm font-medium text-gray-900">Unit 204 - Routine Inspection</div>
+                                        <div class="text-xs text-gray-500">Sunset Apartments • Due in 5 days</div>
+                                    </div>
+                                    <div class="text-xs text-blue-600 font-medium">SCHEDULED</div>
+                                </div>
+
+                                <div class="flex items-center justify-between p-3 bg-gray-50 border border-gray-200 rounded-lg" data-mock="true">
+                                    <div class="flex-1">
+                                        <div class="text-sm font-medium text-gray-900">Unit 35 - Move-in Inspection</div>
+                                        <div class="text-xs text-gray-500">Downtown Plaza • Due in 7 days</div>
+                                    </div>
+                                    <div class="text-xs text-gray-600 font-medium">SCHEDULED</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Compliance Section -->
+                <div id="compliance-section" class="dashboard-section hidden">
+                    <div class="mb-8">
+                        <h1 class="text-2xl font-bold text-gray-900 mb-2">Compliance & Governance</h1>
+                        <p class="text-gray-600">Regulatory compliance tracking and governance workflow management</p>
+                    </div>
+
+                    <!-- Compliance KPIs -->
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+                        <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-200">
+                            <div class="text-2xl font-bold text-green-600 mb-1" data-bind="compliance.overallScore">98.5%</div>
+                            <div class="text-sm text-gray-600">Overall Compliance Score</div>
+                            <div class="text-xs text-green-600 mt-1">+0.8% this month</div>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-200">
+                            <div class="text-2xl font-bold text-orange-600 mb-1" data-bind="compliance.pendingTasks">23</div>
+                            <div class="text-sm text-gray-600">Pending Tasks</div>
+                            <div class="text-xs text-red-600 mt-1">5 overdue</div>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-200">
+                            <div class="text-2xl font-bold text-primary-600 mb-1" data-bind="compliance.auditsCompleted">47</div>
+                            <div class="text-sm text-gray-600">Audits Completed</div>
+                            <div class="text-xs text-green-600 mt-1">+12 this quarter</div>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-200">
+                            <div class="text-2xl font-bold text-gray-900 mb-1" data-bind="compliance.nextDeadline">7 days</div>
+                            <div class="text-sm text-gray-600">Next Major Deadline</div>
+                            <div class="text-xs text-orange-600 mt-1">Financial audit due</div>
+                        </div>
+                    </div>
+
+                    <!-- Compliance Management -->
+                    <div class="grid lg:grid-cols-2 gap-8 mb-8">
+                        <!-- Compliance Calendar -->
+                        <!-- Professional compliance office with regulatory documents and calendar -->
+                        <div class="bg-white rounded-xl shadow-sm border border-gray-200" style="background-image: linear-gradient(rgba(255,255,255,0.95), rgba(255,255,255,0.95)), url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400'); background-size: cover; background-position: center;">
+                            <div class="p-6">
+                                <div class="flex items-center justify-between mb-6">
+                                    <h3 class="text-lg font-semibold text-gray-900">Compliance Calendar</h3>
+                                    <button class="px-4 py-2 bg-orange-500 text-white rounded-lg text-sm">View Full Calendar</button>
+                                </div>
+                                
+                                <div class="space-y-4">
+                                    <div class="bg-white border-l-4 border-red-500 p-4 rounded-lg" data-mock="true">
+                                        <div class="flex items-center justify-between mb-2">
+                                            <div class="text-sm font-medium text-gray-900">Annual Financial Audit</div>
+                                            <span class="px-2 py-1 bg-red-100 text-red-800 rounded-full text-xs">URGENT</span>
+                                        </div>
+                                        <div class="text-xs text-gray-500 mb-2">Garden Heights HOA • Due: March 15, 2024</div>
+                                        <div class="text-xs text-red-600">7 days remaining</div>
+                                    </div>
+
+                                    <div class="bg-white border-l-4 border-orange-500 p-4 rounded-lg" data-mock="true">
+                                        <div class="flex items-center justify-between mb-2">
+                                            <div class="text-sm font-medium text-gray-900">Insurance Certificate Renewal</div>
+                                            <span class="px-2 py-1 bg-orange-100 text-orange-800 rounded-full text-xs">DUE SOON</span>
+                                        </div>
+                                        <div class="text-xs text-gray-500 mb-2">Sunset Apartments • Due: March 20, 2024</div>
+                                        <div class="text-xs text-orange-600">12 days remaining</div>
+                                    </div>
+
+                                    <div class="bg-white border-l-4 border-blue-500 p-4 rounded-lg" data-mock="true">
+                                        <div class="flex items-center justify-between mb-2">
+                                            <div class="text-sm font-medium text-gray-900">Safety Inspection Report</div>
+                                            <span class="px-2 py-1 bg-blue-100 text-blue-800 rounded-full text-xs">SCHEDULED</span>
+                                        </div>
+                                        <div class="text-xs text-gray-500 mb-2">Oceanview Complex • Due: March 30, 2024</div>
+                                        <div class="text-xs text-blue-600">22 days remaining</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Audit Trail -->
+                        <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-200">
+                            <div class="flex items-center justify-between mb-6">
+                                <h3 class="text-lg font-semibold text-gray-900">Recent Audit Activity</h3>
+                                <button class="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg text-sm">Export Trail</button>
+                            </div>
+                            
+                            <div class="space-y-4">
+                                <div class="flex items-start space-x-3" data-mock="true">
+                                    <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                        <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="flex-1 min-w-0">
+                                        <div class="text-sm font-medium text-gray-900">Quarterly financial report submitted</div>
+                                        <div class="text-sm text-gray-500">System Admin • Riverside Complex</div>
+                                        <div class="text-xs text-gray-400 mt-1">2 hours ago</div>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start space-x-3" data-mock="true">
+                                    <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                        <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="flex-1 min-w-0">
+                                        <div class="text-sm font-medium text-gray-900">Insurance documentation updated</div>
+                                        <div class="text-sm text-gray-500">Property Manager • Garden Heights</div>
+                                        <div class="text-xs text-gray-400 mt-1">5 hours ago</div>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start space-x-3" data-mock="true">
+                                    <div class="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                        <svg class="w-4 h-4 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="flex-1 min-w-0">
+                                        <div class="text-sm font-medium text-gray-900">Compliance deadline reminder sent</div>
+                                        <div class="text-sm text-gray-500">Automated System • All Properties</div>
+                                        <div class="text-xs text-gray-400 mt-1">1 day ago</div>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start space-x-3" data-mock="true">
+                                    <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                        <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="flex-1 min-w-0">
+                                        <div class="text-sm font-medium text-gray-900">Safety audit completed</div>
+                                        <div class="text-sm text-gray-500">External Auditor • Sunset Apartments</div>
+                                        <div class="text-xs text-gray-400 mt-1">3 days ago</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Global state management
+        let currentUser = null;
+        let currentSection = 'overview';
+
+        // Modal management
+        function showDemoModal() {
+            document.getElementById('demo-modal').classList.remove('hidden');
+        }
+
+        function hideDemoModal() {
+            document.getElementById('demo-modal').classList.add('hidden');
+        }
+
+        function showLoginModal() {
+            document.getElementById('login-modal').classList.remove('hidden');
+        }
+
+        function hideLoginModal() {
+            document.getElementById('login-modal').classList.add('hidden');
+        }
+
+        // User authentication and role management
+        function loginAsRole(role) {
+            currentUser = role;
+            
+            // Update user display
+            const roleDisplay = document.getElementById('user-role-display');
+            const roleNames = {
+                'admin': 'System Administrator',
+                'manager': 'Property Manager', 
+                'owner': 'Property Owner',
+                'tenant': 'Tenant'
+            };
+            roleDisplay.textContent = roleNames[role];
+
+            // Hide landing page and login modal
+            document.getElementById('landing-page').classList.add('hidden');
+            document.getElementById('login-modal').classList.add('hidden');
+            
+            // Show main dashboard
+            document.getElementById('main-dashboard').classList.remove('hidden');
+            
+            // Show overview section by default
+            showDashboardSection('overview');
+
+            // TODO: Implement role-based feature restrictions
+            // TODO: Load user-specific data and permissions
+        }
+
+        function logout() {
+            currentUser = null;
+            
+            // Hide dashboard
+            document.getElementById('main-dashboard').classList.add('hidden');
+            
+            // Show landing page
+            document.getElementById('landing-page').classList.remove('hidden');
+            
+            // TODO: Clear user session and cached data
+        }
+
+        // Dashboard navigation
+        function showDashboardSection(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.dashboard-section');
+            sections.forEach(section => section.classList.add('hidden'));
+            
+            // Show selected section
+            document.getElementById(sectionId + '-section').classList.remove('hidden');
+            
+            // Update navigation button states
+            const navButtons = document.querySelectorAll('.dashboard-nav-btn');
+            navButtons.forEach(btn => btn.classList.remove('bg-primary-50', 'border-primary-500'));
+            
+            // Mark active navigation item
+            // TODO: Add visual active state to current navigation button
+            
+            currentSection = sectionId;
+            
+            // TODO: Load section-specific data
+            // TODO: Update URL hash for direct linking
+        }
+
+        // Form submission handlers
+        document.addEventListener('DOMContentLoaded', function() {
+            // Demo form submission
+            const demoForm = document.querySelector('#demo-modal form');
+            if (demoForm) {
+                demoForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // TODO: Integrate with CRM/scheduling system
+                    // TODO: Send form data to backend API
+                    // TODO: Schedule demo appointment
+                    
+                    // Show success message
+                    alert('Demo booking submitted! Our team will contact you within 24 hours.');
+                    hideDemoModal();
+                });
+            }
+
+            // TODO: Add form validation
+            // TODO: Add loading states for form submissions
+            // TODO: Add error handling for failed submissions
+            
+            // Initialize dashboard if user is already logged in
+            // TODO: Check for existing session/token
+            
+            // Set up real-time data updates
+            // TODO: Implement WebSocket connections for live updates
+            // TODO: Set up periodic data refresh intervals
+        });
+
+        // Utility functions for data binding and updates
+        function updateKPICard(element, value) {
+            // TODO: Animate value changes with smooth transitions
+            element.textContent = value;
+        }
+
+        function refreshDashboardData() {
+            // TODO: Fetch latest data from API endpoints
+            // TODO: Update all dashboard components with new data
+            // TODO: Handle loading states and error conditions
+        }
+
+        // TODO: Implement comprehensive state management
+        // TODO: Add offline support and data caching
+        // TODO: Implement user preferences and customization
+        // TODO: Add comprehensive error handling and user feedback
+        // TODO: Implement accessibility features (keyboard navigation, screen reader support)
+        // TODO: Add data export functionality
+        // TODO: Implement search and filtering across all modules
+        // TODO: Add notification system for important updates
+    </script>
+</body>
+</html>

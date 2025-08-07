@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeconnectU - Advanced Property Management Software</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                fontFamily: {
+                    'inter': ['Inter', 'sans-serif'],
+                },
+                colors: {
+                    'wcu-blue': '#1e40af',
+                    'wcu-blue-light': '#3b82f6',
+                    'wcu-blue-lighter': '#60a5fa',
+                    'wcu-orange': '#f97316',
+                    'wcu-orange-light': '#fb923c',
+                }
+            }
+        }
+    };
+    </script>
+</head>
+<body class="font-inter bg-gray-50">
+    <!-- @COMPONENT: Header [Navigation with logo, demo CTA, and login options] -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <!-- Company logo representing WeconnectU branding -->
+                    <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&h=60" 
+                         alt="WeconnectU Logo" class="h-10 w-auto" data-mock="true">
+                </div>
+                
+                <!-- Navigation Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#solutions" class="text-gray-700 hover:text-wcu-blue font-medium">Solutions</a>
+                    <a href="#testimonials" class="text-gray-700 hover:text-wcu-blue font-medium">Testimonials</a>
+                    <a href="#contact" class="text-gray-700 hover:text-wcu-blue font-medium">Contact</a>
+                </div>
+
+                <!-- CTA Buttons -->
+                <div class="flex items-center space-x-4">
+                    <button data-event="click:openLoginModal" class="text-gray-700 hover:text-wcu-blue font-medium">Sign In</button>
+                    <button data-event="click:openDemoModal" class="bg-wcu-orange hover:bg-wcu-orange-light text-white px-6 py-2 rounded-lg font-medium transition-colors">
+                        Book a Demo
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- @END_COMPONENT: Header -->
+
+    <!-- @COMPONENT: HeroSection [Main value proposition and key messaging] -->
+    <section class="bg-gradient-to-br from-wcu-blue to-wcu-blue-light text-white py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-4xl mx-auto">
+                <h1 class="text-5xl md:text-6xl font-bold mb-6">
+                    The most advanced end-to-end ecosystem for the management of
+                </h1>
+                <div class="text-2xl md:text-3xl font-semibold mb-8 space-y-2">
+                    <div class="text-wcu-orange-light">Community Schemes</div>
+                    <div class="text-white">Rental Portfolios</div>
+                    <div class="text-wcu-orange-light">Inspection and Maintenance</div>
+                </div>
+                <p class="text-xl mb-10 text-blue-100">
+                    The home of intelligent property management software - Experience the difference
+                </p>
+                <button data-event="click:openDemoModal" class="bg-wcu-orange hover:bg-wcu-orange-light text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors shadow-lg">
+                    Book a Demo
+                </button>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: HeroSection -->
+
+    <!-- @COMPONENT: StatsSection [Key metrics and achievements] -->
+    <section class="bg-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">
+                    Join <span class="text-wcu-orange">20,000+</span> Property Professionals using WeconnectU
+                </h2>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Units Under Management -->
+                <div class="text-center">
+                    <div class="text-5xl font-bold text-wcu-blue mb-2" data-bind="stats.unitsUnderManagement">750,000+</div>
+                    <div class="text-xl font-semibold text-gray-700">Units Under Management</div>
+                </div>
+                
+                <!-- Clients -->
+                <div class="text-center">
+                    <div class="text-5xl font-bold text-wcu-orange mb-2" data-bind="stats.clients">2,500+</div>
+                    <div class="text-xl font-semibold text-gray-700">Clients</div>
+                </div>
+                
+                <!-- Registered Users -->
+                <div class="text-center">
+                    <div class="text-5xl font-bold text-wcu-blue mb-2" data-bind="stats.registeredUsers">20,000+</div>
+                    <div class="text-xl font-semibold text-gray-700">Registered Users</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: StatsSection -->
+
+    <!-- @COMPONENT: SolutionsSection [Three core modules overview] -->
+    <section id="solutions" class="bg-gray-50 py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-6">Our solutions at a glance</h2>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- Community Management -->
+                <div class="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow">
+                    <!-- Modern office building representing community management -->
+                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&h=400" 
+                         alt="Modern office building" class="w-full h-48 object-cover rounded-lg mb-6">
+                    
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Community Management Software</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        for the management of Community schemes (Body corporate & HOA's)
+                    </p>
+                    
+                    <div class="space-y-3 mb-8">
+                        <div class="flex items-center text-gray-700">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Automated levy processing and billing</span>
+                        </div>
+                        <div class="flex items-center text-gray-700">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Compliance calendar and monitoring</span>
+                        </div>
+                        <div class="flex items-center text-gray-700">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Real-time financial reporting</span>
+                        </div>
+                        <div class="flex items-center text-gray-700">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Trustee portal access</span>
+                        </div>
+                    </div>
+                    
+                    <button class="w-full bg-wcu-blue hover:bg-wcu-blue-light text-white py-3 rounded-lg font-semibold transition-colors">
+                        Find out more
+                    </button>
+                </div>
+
+                <!-- Rental Asset Management -->
+                <div class="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow">
+                    <!-- Residential apartment complex for rental management -->
+                    <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&h=400" 
+                         alt="Modern residential apartment complex" class="w-full h-48 object-cover rounded-lg mb-6">
+                    
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Rental Asset Management Software</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        for the management of your residential and commercial properties.
+                    </p>
+                    
+                    <div class="space-y-3 mb-8">
+                        <div class="flex items-center text-gray-700">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Live data syncing and automation</span>
+                        </div>
+                        <div class="flex items-center text-gray-700">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Bank integration and trust accounts</span>
+                        </div>
+                        <div class="flex items-center text-gray-700">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Lease lifecycle management</span>
+                        </div>
+                        <div class="flex items-center text-gray-700">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>One-click payment approvals</span>
+                        </div>
+                    </div>
+                    
+                    <button class="w-full bg-wcu-blue hover:bg-wcu-blue-light text-white py-3 rounded-lg font-semibold transition-colors">
+                        Find out more
+                    </button>
+                </div>
+
+                <!-- RedRabbit Management -->
+                <div class="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow">
+                    <!-- Professional maintenance worker inspecting property -->
+                    <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&h=400" 
+                         alt="Professional maintenance inspection" class="w-full h-48 object-cover rounded-lg mb-6">
+                    
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">RedRabbit Management Software</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        for the management of your Inspections and Maintenance.
+                    </p>
+                    
+                    <div class="space-y-3 mb-8">
+                        <div class="flex items-center text-gray-700">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Professional interactive reports</span>
+                        </div>
+                        <div class="flex items-center text-gray-700">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Maintenance ticket management</span>
+                        </div>
+                        <div class="flex items-center text-gray-700">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Mobile inspection capabilities</span>
+                        </div>
+                        <div class="flex items-center text-gray-700">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Communication hub for stakeholders</span>
+                        </div>
+                    </div>
+                    
+                    <button class="w-full bg-wcu-blue hover:bg-wcu-blue-light text-white py-3 rounded-lg font-semibold transition-colors">
+                        Find out more
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: SolutionsSection -->
+
+    <!-- @COMPONENT: BenefitsSection [Key value propositions] -->
+    <section class="bg-white py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-6">Your biggest challenges, solved.</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    We've been where you are. We've heard what you've said. These are the simple solutions you've asked for, 
+                    delivered with the finesse only first-hand property experience can provide.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-wcu-blue rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-shield-alt text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Compliancy</h3>
+                    <p class="text-gray-600">
+                        We've turned the time-consuming process of compliance into an efficient and easy-to-maintain course of action.
+                    </p>
+                </div>
+
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-wcu-orange rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-chart-line text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Manageability</h3>
+                    <p class="text-gray-600">
+                        Our intelligent dashboards provide real-time KPI tracking and business monitoring for ultimate manageability.
+                    </p>
+                </div>
+
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-wcu-blue rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-expand-arrows-alt text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Scalability</h3>
+                    <p class="text-gray-600">
+                        Efficiency + manageability = scalability. We keep your finger on the pulse for sustainable growth.
+                    </p>
+                </div>
+
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-wcu-orange rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-dollar-sign text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Profitability</h3>
+                    <p class="text-gray-600">
+                        With compliancy, manageability and scalability comes profit. WeconnectU is the boost your bottom line needed.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: BenefitsSection -->
+
+    <!-- @COMPONENT: TestimonialsSection [Client feedback carousel] -->
+    <section id="testimonials" class="bg-gray-50 py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-6">What our clients say</h2>
+            </div>
+
+            <!-- @STATE: currentTestimonial:number = 0 -->
+            <div class="relative">
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- @MAP: testimonials.map(testimonial => ( -->
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <div class="flex items-center mb-6">
+                            <!-- Professional headshot of client testimonial -->
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=150&h=150" 
+                                 alt="Client testimonial photo" class="w-16 h-16 rounded-full object-cover mr-4">
+                            <div>
+                                <div class="font-semibold text-gray-900" data-bind="testimonial.name">Megan Ladbrook</div>
+                                <div class="text-gray-600 text-sm" data-bind="testimonial.title">Creative Director - Only Realty</div>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 leading-relaxed" data-bind="testimonial.content">
+                            "We haven't found anything that worked as well as WeconnectU. The interface is user friendly, 
+                            the ticket management is a breeze and inspection reports have never been more professional."
+                        </p>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <div class="flex items-center mb-6">
+                            <!-- Professional headshot of client testimonial -->
+                            <img src="https://pixabay.com/get/g7a990478bf352f1f6e42618d43332db7427a418ae2f9541ec4509a6ac22dc8adb5804d58268071a32ad399573459c04874c6d4ba450cb71afdda785c24aa38e7_1280.jpg" 
+                                 alt="Client testimonial photo" class="w-16 h-16 rounded-full object-cover mr-4">
+                            <div>
+                                <div class="font-semibold text-gray-900">Tanya Oosthuizen</div>
+                                <div class="text-gray-600 text-sm">Office Manager, Professional Property Management</div>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 leading-relaxed">
+                            "Since using RedRabbit, our monthly inspections run more efficiently saving us time as well as effort... 
+                            plus all our owners are impressed with the professional reports."
+                        </p>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <div class="flex items-center mb-6">
+                            <!-- Professional headshot of client testimonial -->
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=150&h=150" 
+                                 alt="Client testimonial photo" class="w-16 h-16 rounded-full object-cover mr-4">
+                            <div>
+                                <div class="font-semibold text-gray-900">Andre Kritzinger</div>
+                                <div class="text-gray-600 text-sm">Managing Director, Realtors International</div>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 leading-relaxed">
+                            "WeconnectU assisted us in being more efficient. The different modules built into one platform 
+                            create opportunities for a more profitable business going forward."
+                        </p>
+                    </div>
+                    <!-- @END_MAP )) -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: TestimonialsSection -->
+
+    <!-- @COMPONENT: CTASection [Final call-to-action with demo booking] -->
+    <section class="bg-gradient-to-r from-wcu-blue to-wcu-blue-light py-20">
+        <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-white mb-6">Ready to transform your property management?</h2>
+            <p class="text-xl text-blue-100 mb-10">
+                Join thousands of property professionals who have revolutionized their operations with WeconnectU
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button data-event="click:openDemoModal" class="bg-wcu-orange hover:bg-wcu-orange-light text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors shadow-lg">
+                    Book a Demo
+                </button>
+                <button data-event="click:openLoginModal" class="bg-white hover:bg-gray-50 text-wcu-blue px-8 py-4 rounded-lg font-semibold text-lg transition-colors shadow-lg">
+                    Sign In to Your Account
+                </button>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: CTASection -->
+
+    <!-- @COMPONENT: Footer [Company information and links] -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">WeconnectU</h3>
+                    <p class="text-gray-400 mb-4">
+                        South Africa's most advanced property management software ecosystem.
+                    </p>
+                    <div class="text-gray-400">
+                        <div>086 999 0756</div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Solutions</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white">Community Management</a></li>
+                        <li><a href="#" class="hover:text-white">Rental Asset Management</a></li>
+                        <li><a href="#" class="hover:text-white">RedRabbit Inspections</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Company</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white">About Us</a></li>
+                        <li><a href="#" class="hover:text-white">Contact</a></li>
+                        <li><a href="#" class="hover:text-white">Support</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Legal</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white">Terms of Use</a></li>
+                        <li><a href="#" class="hover:text-white">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 WeconnectU. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- @END_COMPONENT: Footer -->
+
+    <!-- @COMPONENT: DemoBookingModal [Lead capture form] -->
+    <div id="demoModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50" data-implementation="Modal should be controlled by React state">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="bg-white rounded-xl max-w-md w-full p-8">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-2xl font-bold text-gray-900">Book a Demo!</h2>
+                    <button data-event="click:closeDemoModal" class="text-gray-400 hover:text-gray-600">
+                        <i class="fas fa-times text-xl"></i>
+                    </button>
+                </div>
+                
+                <form data-implementation="Should integrate with CRM/lead management system">
+                    <div class="space-y-4">
+                        <div>
+                            <input type="email" placeholder="Email" required 
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-wcu-blue focus:border-transparent">
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <input type="text" placeholder="First Name" required 
+                                   class="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-wcu-blue focus:border-transparent">
+                            <input type="text" placeholder="Last Name" required 
+                                   class="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-wcu-blue focus:border-transparent">
+                        </div>
+                        <div>
+                            <input type="tel" placeholder="Phone Number" required 
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-wcu-blue focus:border-transparent">
+                        </div>
+                        <div>
+                            <input type="text" placeholder="Company" required 
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-wcu-blue focus:border-transparent">
+                        </div>
+                        <div class="flex items-start">
+                            <input type="checkbox" required class="mt-1 mr-3">
+                            <label class="text-sm text-gray-600">
+                                I have read and accept WeconnectU's <a href="#" class="text-wcu-blue hover:underline">Terms of Use</a> 
+                                and <a href="#" class="text-wcu-blue hover:underline">Privacy Policy</a>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="w-full bg-wcu-orange hover:bg-wcu-orange-light text-white py-3 rounded-lg font-semibold mt-6 transition-colors">
+                        Book Demo
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- @END_COMPONENT: DemoBookingModal -->
+
+    <!-- @COMPONENT: LoginModal [Multi-portal login selection] -->
+    <div id="loginModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50" data-implementation="Modal should be controlled by React state">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="bg-white rounded-xl max-w-md w-full p-8">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-2xl font-bold text-gray-900">Sign in to your account</h2>
+                    <button data-event="click:closeLoginModal" class="text-gray-400 hover:text-gray-600">
+                        <i class="fas fa-times text-xl"></i>
+                    </button>
+                </div>
+                
+                <p class="text-gray-600 mb-8">Please select the account you are registered with to sign in.</p>
+                
+                <div class="space-y-4">
+                    <button data-event="click:redirectToLogin" data-url="https://app.weconnectu.co.za/signin" 
+                            class="w-full text-left p-4 border-2 border-gray-200 rounded-lg hover:border-wcu-blue transition-colors">
+                        <div class="font-semibold text-gray-900">Community Management Software</div>
+                        <div class="text-sm text-gray-600">Sign in</div>
+                    </button>
+                    
+                    <button data-event="click:redirectToLogin" data-url="https://rams.weconnectu.co.za/login"
+                            class="w-full text-left p-4 border-2 border-gray-200 rounded-lg hover:border-wcu-blue transition-colors">
+                        <div class="font-semibold text-gray-900">Rental Asset Management Software</div>
+                        <div class="text-sm text-gray-600">Sign in</div>
+                    </button>
+                    
+                    <button data-event="click:redirectToLogin" data-url="https://secure.redrabbit.zone/login"
+                            class="w-full text-left p-4 border-2 border-gray-200 rounded-lg hover:border-wcu-blue transition-colors">
+                        <div class="font-semibold text-gray-900">Inspections & Maintenance Management Software</div>
+                        <div class="text-sm text-gray-600">Sign in</div>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- @END_COMPONENT: LoginModal -->
+
+    <script>
+    (function() {
+        // Modal Management
+        const demoModal = document.getElementById('demoModal');
+        const loginModal = document.getElementById('loginModal');
+        
+        // Demo Modal Controls
+        document.querySelectorAll('[data-event="click:openDemoModal"]').forEach(button => {
+            button.addEventListener('click', () => {
+                demoModal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+        
+        document.querySelectorAll('[data-event="click:closeDemoModal"]').forEach(button => {
+            button.addEventListener('click', () => {
+                demoModal.classList.add('hidden');
+                document.body.style.overflow = '';
+            });
+        });
+        
+        // Login Modal Controls
+        document.querySelectorAll('[data-event="click:openLoginModal"]').forEach(button => {
+            button.addEventListener('click', () => {
+                loginModal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+        
+        document.querySelectorAll('[data-event="click:closeLoginModal"]').forEach(button => {
+            button.addEventListener('click', () => {
+                loginModal.classList.add('hidden');
+                document.body.style.overflow = '';
+            });
+        });
+        
+        // Login Redirections
+        document.querySelectorAll('[data-event="click:redirectToLogin"]').forEach(button => {
+            button.addEventListener('click', () => {
+                const url = button.getAttribute('data-url');
+                // TODO: Implement redirect to external login portals
+                console.log('Redirect to:', url);
+            });
+        });
+        
+        // Close modals when clicking outside
+        [demoModal, loginModal].forEach(modal => {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.add('hidden');
+                    document.body.style.overflow = '';
+                }
+            });
+        });
+        
+        // Demo form submission
+        const demoForm = demoModal.querySelector('form');
+        demoForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            // TODO: Implement form submission to CRM/lead management system
+            console.log('Demo form submitted');
+            // Show success message
+            alert('Thank you! One of our Business Development Managers will be in touch soon.');
+            demoModal.classList.add('hidden');
+            document.body.style.overflow = '';
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    })();
+    </script>
+</body>
+</html>

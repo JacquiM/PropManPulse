@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PropManPulse - Your Pulse on Property Management Excellence</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#036666',
+                        secondary: '#30B2BE',
+                        success: '#10B981',
+                        warning: '#F59E0B',
+                        error: '#EF4444',
+                        'gray-50': '#F8FAFC',
+                        'gray-900': '#1E293B'
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'ui-sans-serif', 'system-ui']
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="font-sans bg-gray-50">
+
+    <!-- @COMPONENT: LandingPage -->
+    <div id="landing-page" class="min-h-screen">
+        <!-- Navigation -->
+        <nav class="bg-white shadow-sm border-b border-gray-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-16">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0 flex items-center">
+                            <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+                                <i class="fas fa-pulse text-white text-lg"></i>
+                            </div>
+                            <span class="ml-3 text-xl font-bold text-gray-900">PropManPulse</span>
+                        </div>
+                    </div>
+                    <div class="hidden md:block">
+                        <div class="ml-10 flex items-baseline space-x-8">
+                            <a href="#community" class="text-gray-700 hover:text-primary px-3 py-2 text-sm font-medium">Community Management</a>
+                            <a href="#rental" class="text-gray-700 hover:text-primary px-3 py-2 text-sm font-medium">Rental Management</a>
+                            <a href="#maintenance" class="text-gray-700 hover:text-primary px-3 py-2 text-sm font-medium">Maintenance</a>
+                            <a href="#compliance" class="text-gray-700 hover:text-primary px-3 py-2 text-sm font-medium">Compliance</a>
+                            <button onclick="showLogin()" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-opacity-90 transition-colors">Sign In</button>
+                        </div>
+                    </div>
+                    <div class="md:hidden">
+                        <button class="text-gray-700 hover:text-primary">
+                            <i class="fas fa-bars text-xl"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <div class="relative bg-gradient-to-br from-primary to-secondary">
+            <!-- Professional property management dashboard background -->
+            <div class="absolute inset-0 bg-black bg-opacity-20"></div>
+            <div style="background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80'); background-size: cover; background-position: center; opacity: 0.1;" class="absolute inset-0"></div>
+            <div class="relative max-w-7xl mx-auto py-24 px-4 sm:py-32 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h1 class="text-4xl font-bold tracking-tight text-white sm:text-6xl">
+                        The most advanced end-to-end ecosystem for property management
+                    </h1>
+                    <p class="mt-6 text-xl text-white max-w-3xl mx-auto">
+                        Your Pulse on Property Management Excellence. Experience intelligent solutions for Community Schemes, Rental Portfolios, and Inspection & Maintenance.
+                    </p>
+                    <div class="mt-10 flex justify-center space-x-4">
+                        <button onclick="showDemo()" class="bg-white text-primary px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-50 transition-colors">
+                            Book a Demo
+                        </button>
+                        <button onclick="showLogin()" class="border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white hover:text-primary transition-colors">
+                            Sign In
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Solutions Overview -->
+        <div class="py-16 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl font-bold text-gray-900">Our solutions at a glance</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                        <div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mb-4">
+                            <i class="fas fa-building text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Community Management</h3>
+                        <p class="text-gray-600">For the management of Community schemes (Body corporate & HOA's)</p>
+                    </div>
+                    <div class="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                        <div class="w-12 h-12 bg-secondary rounded-lg flex items-center justify-center mb-4">
+                            <i class="fas fa-home text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Rental Asset Management</h3>
+                        <p class="text-gray-600">For the management of your residential and commercial properties.</p>
+                    </div>
+                    <div class="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                        <div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mb-4">
+                            <i class="fas fa-tools text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Maintenance & Inspections</h3>
+                        <p class="text-gray-600">For the management of your Inspections and Maintenance.</p>
+                    </div>
+                    <div class="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                        <div class="w-12 h-12 bg-secondary rounded-lg flex items-center justify-center mb-4">
+                            <i class="fas fa-shield-alt text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Compliance & Governance</h3>
+                        <p class="text-gray-600">Complete compliance management with regulatory tracking and auditing.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats Section -->
+        <div class="py-16 bg-primary">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center text-white">
+                    <h2 class="text-3xl font-bold mb-12">Join 20,000+ Property Professionals using PropManPulse</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div>
+                            <div class="text-4xl font-bold mb-2">750,000+</div>
+                            <div class="text-xl">Units Under Management</div>
+                        </div>
+                        <div>
+                            <div class="text-4xl font-bold mb-2">2,500+</div>
+                            <div class="text-xl">Clients</div>
+                        </div>
+                        <div>
+                            <div class="text-4xl font-bold mb-2">50,000+</div>
+                            <div class="text-xl">Registered Users</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- @END_COMPONENT: LandingPage -->
+
+    <!-- @COMPONENT: DemoModal -->
+    <div id="demo-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-xl max-w-md w-full p-6">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-bold text-gray-900">Book a Demo</h3>
+                <button onclick="hideDemo()" class="text-gray-400 hover:text-gray-600">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            <form class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                    <input type="email" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary">
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">First Name</label>
+                        <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Last Name</label>
+                        <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+                    <input type="tel" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Company</label>
+                    <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary">
+                </div>
+                <div class="flex items-start">
+                    <input type="checkbox" id="terms" class="mt-1 mr-2">
+                    <label for="terms" class="text-sm text-gray-600">I have read and accept PropManPulse's Terms of Use and Privacy Policy</label>
+                </div>
+                <button type="submit" class="w-full bg-primary text-white py-3 rounded-lg font-semibold hover:bg-opacity-90 transition-colors">
+                    Book Demo
+                </button>
+            </form>
+        </div>
+    </div>
+    <!-- @END_COMPONENT: DemoModal -->
+
+    <!-- @COMPONENT: LoginModal -->
+    <div id="login-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-xl max-w-lg w-full p-6">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-bold text-gray-900">Sign in to your account</h3>
+                <button onclick="hideLogin()" class="text-gray-400 hover:text-gray-600">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            <p class="text-gray-600 mb-8">Please select the account you are registered with to sign in.</p>
+            <div class="space-y-4">
+                <button onclick="enterDashboard('community')" class="w-full p-4 border-2 border-gray-200 rounded-lg hover:border-primary hover:bg-primary hover:bg-opacity-5 transition-colors text-left">
+                    <div class="flex items-center">
+                        <i class="fas fa-building text-primary text-xl mr-4"></i>
+                        <div>
+                            <div class="font-semibold text-gray-900">Community Management Software</div>
+                            <div class="text-sm text-gray-600">Sign in</div>
+                        </div>
+                    </div>
+                </button>
+                <button onclick="enterDashboard('rental')" class="w-full p-4 border-2 border-gray-200 rounded-lg hover:border-secondary hover:bg-secondary hover:bg-opacity-5 transition-colors text-left">
+                    <div class="flex items-center">
+                        <i class="fas fa-home text-secondary text-xl mr-4"></i>
+                        <div>
+                            <div class="font-semibold text-gray-900">Rental Asset Management Software</div>
+                            <div class="text-sm text-gray-600">Sign in</div>
+                        </div>
+                    </div>
+                </button>
+                <button onclick="enterDashboard('maintenance')" class="w-full p-4 border-2 border-gray-200 rounded-lg hover:border-primary hover:bg-primary hover:bg-opacity-5 transition-colors text-left">
+                    <div class="flex items-center">
+                        <i class="fas fa-tools text-primary text-xl mr-4"></i>
+                        <div>
+                            <div class="font-semibold text-gray-900">Inspections & Maintenance Management Software</div>
+                            <div class="text-sm text-gray-600">Sign in</div>
+                        </div>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- @END_COMPONENT: LoginModal -->
+
+    <!-- @COMPONENT: Dashboard -->
+    <div id="dashboard" class="hidden min-h-screen bg-gray-50">
+        <!-- Top Navigation -->
+        <nav class="bg-white shadow-sm border-b border-gray-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-16">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0 flex items-center">
+                            <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+                                <i class="fas fa-pulse text-white"></i>
+                            </div>
+                            <span class="ml-3 text-lg font-bold text-gray-900">PropManPulse</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <button class="text-gray-500 hover:text-gray-700">
+                            <i class="fas fa-bell text-xl"></i>
+                            <span class="absolute -mt-2 ml-2 px-1.5 py-0.5 bg-error text-white text-xs rounded-full">3</span>
+                        </button>
+                        <div class="flex items-center space-x-2">
+                            <!-- Profile image placeholder -->
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=150&h=150" alt="User profile" class="w-8 h-8 rounded-full object-cover" data-bind="user.avatar">
+                            <span class="text-sm font-medium text-gray-700" data-bind="user.name">John Manager</span>
+                            <button onclick="logout()" class="text-gray-400 hover:text-gray-600">
+                                <i class="fas fa-sign-out-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <div class="flex">
+            <!-- Sidebar -->
+            <div class="w-64 bg-white shadow-sm h-screen sticky top-0">
+                <div class="p-6">
+                    <nav class="space-y-2">
+                        <button onclick="showDashboardSection('overview')" class="w-full flex items-center px-3 py-2 text-sm font-medium text-gray-700 rounded-lg hover:bg-gray-100 active-nav">
+                            <i class="fas fa-tachometer-alt mr-3"></i>
+                            Overview
+                        </button>
+                        <button onclick="showDashboardSection('community')" class="w-full flex items-center px-3 py-2 text-sm font-medium text-gray-700 rounded-lg hover:bg-gray-100">
+                            <i class="fas fa-building mr-3"></i>
+                            Community Management
+                        </button>
+                        <button onclick="showDashboardSection('rental')" class="w-full flex items-center px-3 py-2 text-sm font-medium text-gray-700 rounded-lg hover:bg-gray-100">
+                            <i class="fas fa-home mr-3"></i>
+                            Rental Management
+                        </button>
+                        <button onclick="showDashboardSection('maintenance')" class="w-full flex items-center px-3 py-2 text-sm font-medium text-gray-700 rounded-lg hover:bg-gray-100">
+                            <i class="fas fa-tools mr-3"></i>
+                            Maintenance & Inspections
+                        </button>
+                        <button onclick="showDashboardSection('compliance')" class="w-full flex items-center px-3 py-2 text-sm font-medium text-gray-700 rounded-lg hover:bg-gray-100">
+                            <i class="fas fa-shield-alt mr-3"></i>
+                            Compliance & Governance
+                        </button>
+                        <button onclick="showDashboardSection('financial')" class="w-full flex items-center px-3 py-2 text-sm font-medium text-gray-700 rounded-lg hover:bg-gray-100">
+                            <i class="fas fa-chart-line mr-3"></i>
+                            Financial Reports
+                        </button>
+                        <button onclick="showDashboardSection('users')" class="w-full flex items-center px-3 py-2 text-sm font-medium text-gray-700 rounded-lg hover:bg-gray-100">
+                            <i class="fas fa-users mr-3"></i>
+                            User Management
+                        </button>
+                    </nav>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="flex-1 overflow-auto">
+                <!-- Dashboard Overview -->
+                <div id="dashboard-overview" class="p-8">
+                    <div class="mb-8">
+                        <h1 class="text-2xl font-bold text-gray-900">Dashboard Overview</h1>
+                        <p class="text-gray-600">Your comprehensive property management insights</p>
+                    </div>
+
+                    <!-- KPI Cards -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                        <div class="bg-white rounded-lg shadow p-6">
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-primary bg-opacity-10 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-building text-primary text-xl"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <p class="text-sm font-medium text-gray-600">Total Properties</p>
+                                    <p class="text-2xl font-bold text-gray-900" data-bind="stats.totalProperties">247</p>
+                                </div>
+                            </div>
+                            <div class="mt-4 flex items-center text-sm">
+                                <span class="text-success font-medium">+12%</span>
+                                <span class="text-gray-600 ml-2">from last month</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-lg shadow p-6">
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-secondary bg-opacity-10 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-users text-secondary text-xl"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <p class="text-sm font-medium text-gray-600">Active Tenants</p>
+                                    <p class="text-2xl font-bold text-gray-900" data-bind="stats.activeTenants">1,842</p>
+                                </div>
+                            </div>
+                            <div class="mt-4 flex items-center text-sm">
+                                <span class="text-success font-medium">+8%</span>
+                                <span class="text-gray-600 ml-2">from last month</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-lg shadow p-6">
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-warning bg-opacity-10 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-exclamation-triangle text-warning text-xl"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <p class="text-sm font-medium text-gray-600">Open Tickets</p>
+                                    <p class="text-2xl font-bold text-gray-900" data-bind="stats.openTickets">38</p>
+                                </div>
+                            </div>
+                            <div class="mt-4 flex items-center text-sm">
+                                <span class="text-error font-medium">+3</span>
+                                <span class="text-gray-600 ml-2">since yesterday</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-lg shadow p-6">
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-success bg-opacity-10 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-check-circle text-success text-xl"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <p class="text-sm font-medium text-gray-600">Compliance Rate</p>
+                                    <p class="text-2xl font-bold text-gray-900" data-bind="stats.complianceRate">94%</p>
+                                </div>
+                            </div>
+                            <div class="mt-4 flex items-center text-sm">
+                                <span class="text-success font-medium">+2%</span>
+                                <span class="text-gray-600 ml-2">from last quarter</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Charts Row -->
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+                        <!-- Revenue Chart -->
+                        <div class="bg-white rounded-lg shadow p-6">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-4">Monthly Revenue</h3>
+                            <canvas id="revenueChart" width="400" height="200"></canvas>
+                        </div>
+
+                        <!-- Property Types -->
+                        <div class="bg-white rounded-lg shadow p-6">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-4">Property Portfolio</h3>
+                            <canvas id="portfolioChart" width="400" height="200"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Recent Activities -->
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <!-- Recent Maintenance Requests -->
+                        <div class="bg-white rounded-lg shadow">
+                            <div class="p-6 border-b border-gray-200">
+                                <h3 class="text-lg font-semibold text-gray-900">Recent Maintenance Requests</h3>
+                            </div>
+                            <div class="divide-y divide-gray-200">
+                                <!-- @MAP: recentTickets.map(ticket => ( -->
+                                <div class="p-4 hover:bg-gray-50">
+                                    <div class="flex items-center justify-between">
+                                        <div class="flex items-center space-x-3">
+                                            <div class="w-2 h-2 bg-error rounded-full"></div>
+                                            <div>
+                                                <p class="text-sm font-medium text-gray-900" data-bind="ticket.title">Leaking faucet - Unit 204</p>
+                                                <p class="text-sm text-gray-600" data-bind="ticket.property">Sunset Gardens Complex</p>
+                                            </div>
+                                        </div>
+                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-error text-white" data-bind="ticket.priority">High</span>
+                                    </div>
+                                </div>
+                                <!-- @END_MAP )) -->
+                                <div class="p-4 hover:bg-gray-50">
+                                    <div class="flex items-center justify-between">
+                                        <div class="flex items-center space-x-3">
+                                            <div class="w-2 h-2 bg-warning rounded-full"></div>
+                                            <div>
+                                                <p class="text-sm font-medium text-gray-900">HVAC service required</p>
+                                                <p class="text-sm text-gray-600">Oceanview Towers</p>
+                                            </div>
+                                        </div>
+                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-warning text-white">Medium</span>
+                                    </div>
+                                </div>
+                                <div class="p-4 hover:bg-gray-50">
+                                    <div class="flex items-center justify-between">
+                                        <div class="flex items-center space-x-3">
+                                            <div class="w-2 h-2 bg-success rounded-full"></div>
+                                            <div>
+                                                <p class="text-sm font-medium text-gray-900">Painting touch-up completed</p>
+                                                <p class="text-sm text-gray-600">Riverside Apartments</p>
+                                            </div>
+                                        </div>
+                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-success text-white">Completed</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Upcoming Inspections -->
+                        <div class="bg-white rounded-lg shadow">
+                            <div class="p-6 border-b border-gray-200">
+                                <h3 class="text-lg font-semibold text-gray-900">Upcoming Inspections</h3>
+                            </div>
+                            <div class="divide-y divide-gray-200">
+                                <div class="p-4 hover:bg-gray-50">
+                                    <div class="flex items-center justify-between">
+                                        <div>
+                                            <p class="text-sm font-medium text-gray-900">Monthly Safety Inspection</p>
+                                            <p class="text-sm text-gray-600">Palm Ridge Estate</p>
+                                            <p class="text-xs text-gray-500 mt-1">Tomorrow at 10:00 AM</p>
+                                        </div>
+                                        <i class="fas fa-calendar-alt text-primary"></i>
+                                    </div>
+                                </div>
+                                <div class="p-4 hover:bg-gray-50">
+                                    <div class="flex items-center justify-between">
+                                        <div>
+                                            <p class="text-sm font-medium text-gray-900">Property Condition Assessment</p>
+                                            <p class="text-sm text-gray-600">Hillside Manor</p>
+                                            <p class="text-xs text-gray-500 mt-1">Friday at 2:00 PM</p>
+                                        </div>
+                                        <i class="fas fa-calendar-alt text-secondary"></i>
+                                    </div>
+                                </div>
+                                <div class="p-4 hover:bg-gray-50">
+                                    <div class="flex items-center justify-between">
+                                        <div>
+                                            <p class="text-sm font-medium text-gray-900">Compliance Audit</p>
+                                            <p class="text-sm text-gray-600">Metro Business Complex</p>
+                                            <p class="text-xs text-gray-500 mt-1">Next Monday at 9:00 AM</p>
+                                        </div>
+                                        <i class="fas fa-calendar-alt text-warning"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Community Management Section -->
+                <div id="dashboard-community" class="p-8 hidden">
+                    <div class="mb-8">
+                        <h1 class="text-2xl font-bold text-gray-900">Community Management</h1>
+                        <p class="text-gray-600">Body Corporate & HOA Management Dashboard</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                        <!-- Community Overview -->
+                        <div class="lg:col-span-2 bg-white rounded-lg shadow p-6">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-6">Community Schemes</h3>
+                            <div class="space-y-4">
+                                <div class="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:border-primary transition-colors">
+                                    <!-- Professional residential complex management -->
+                                    <div class="flex items-center space-x-4">
+                                        <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&h=200" alt="Sunset Gardens Complex" class="w-16 h-16 rounded-lg object-cover">
+                                        <div>
+                                            <h4 class="font-semibold text-gray-900">Sunset Gardens Complex</h4>
+                                            <p class="text-sm text-gray-600">124 Units • Body Corporate</p>
+                                            <div class="flex items-center space-x-4 mt-1">
+                                                <span class="text-xs text-success font-medium">94% Compliance</span>
+                                                <span class="text-xs text-primary">R 2.4M Annual Levy</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="text-right">
+                                        <button class="text-primary hover:text-primary-600">
+                                            <i class="fas fa-chevron-right"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:border-primary transition-colors">
+                                    <!-- Modern office building complex -->
+                                    <div class="flex items-center space-x-4">
+                                        <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&h=200" alt="Oceanview Towers" class="w-16 h-16 rounded-lg object-cover">
+                                        <div>
+                                            <h4 class="font-semibold text-gray-900">Oceanview Towers</h4>
+                                            <p class="text-sm text-gray-600">87 Units • Sectional Title</p>
+                                            <div class="flex items-center space-x-4 mt-1">
+                                                <span class="text-xs text-warning font-medium">89% Compliance</span>
+                                                <span class="text-xs text-primary">R 1.8M Annual Levy</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="text-right">
+                                        <button class="text-primary hover:text-primary-600">
+                                            <i class="fas fa-chevron-right"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Quick Actions -->
+                        <div class="bg-white rounded-lg shadow p-6">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-4">Quick Actions</h3>
+                            <div class="space-y-3">
+                                <button class="w-full flex items-center justify-between p-3 bg-primary bg-opacity-5 text-primary rounded-lg hover:bg-opacity-10 transition-colors">
+                                    <span class="flex items-center">
+                                        <i class="fas fa-plus mr-2"></i>
+                                        Add Community
+                                    </span>
+                                </button>
+                                <button class="w-full flex items-center justify-between p-3 bg-gray-50 text-gray-700 rounded-lg hover:bg-gray-100 transition-colors">
+                                    <span class="flex items-center">
+                                        <i class="fas fa-file-invoice mr-2"></i>
+                                        Generate Levy Roll
+                                    </span>
+                                </button>
+                                <button class="w-full flex items-center justify-between p-3 bg-gray-50 text-gray-700 rounded-lg hover:bg-gray-100 transition-colors">
+                                    <span class="flex items-center">
+                                        <i class="fas fa-calendar mr-2"></i>
+                                        Schedule AGM
+                                    </span>
+                                </button>
+                                <button class="w-full flex items-center justify-between p-3 bg-gray-50 text-gray-700 rounded-lg hover:bg-gray-100 transition-colors">
+                                    <span class="flex items-center">
+                                        <i class="fas fa-chart-bar mr-2"></i>
+                                        Compliance Report
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Financial Overview -->
+                    <div class="mt-8 bg-white rounded-lg shadow p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-6">Financial Summary</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-success">R 4.2M</div>
+                                <div class="text-sm text-gray-600">Total Levy Income</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-primary">R 890K</div>
+                                <div class="text-sm text-gray-600">Reserve Fund</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-warning">R 145K</div>
+                                <div class="text-sm text-gray-600">Outstanding Arrears</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-secondary">92%</div>
+                                <div class="text-sm text-gray-600">Collection Rate</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Maintenance Section -->
+                <div id="dashboard-maintenance" class="p-8 hidden">
+                    <div class="mb-8">
+                        <h1 class="text-2xl font-bold text-gray-900">Maintenance & Inspections</h1>
+                        <p class="text-gray-600">Comprehensive maintenance and inspection management</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-4 gap-6 mb-8">
+                        <div class="bg-white rounded-lg shadow p-6">
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-error bg-opacity-10 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-exclamation-circle text-error text-xl"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <p class="text-sm font-medium text-gray-600">Urgent Tickets</p>
+                                    <p class="text-2xl font-bold text-gray-900">12</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-lg shadow p-6">
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-warning bg-opacity-10 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-clock text-warning text-xl"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <p class="text-sm font-medium text-gray-600">In Progress</p>
+                                    <p class="text-2xl font-bold text-gray-900">26</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-lg shadow p-6">
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-success bg-opacity-10 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-check-circle text-success text-xl"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <p class="text-sm font-medium text-gray-600">Completed</p>
+                                    <p class="text-2xl font-bold text-gray-900">184</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-lg shadow p-6">
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-primary bg-opacity-10 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-clipboard-check text-primary text-xl"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <p class="text-sm font-medium text-gray-600">Inspections</p>
+                                    <p class="text-2xl font-bold text-gray-900">18</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Maintenance Tickets Table -->
+                    <div class="bg-white rounded-lg shadow">
+                        <div class="px-6 py-4 border-b border-gray-200 flex items-center justify-between">
+                            <h3 class="text-lg font-semibold text-gray-900">Active Maintenance Tickets</h3>
+                            <button class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-opacity-90">
+                                <i class="fas fa-plus mr-2"></i>New Ticket
+                            </button>
+                        </div>
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full divide-y divide-gray-200">
+                                <thead class="bg-gray-50">
+                                    <tr>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Ticket ID</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Property</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Issue</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Priority</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Assigned</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="bg-white divide-y divide-gray-200">
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">#MT-2024-001</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Sunset Gardens - Unit 204</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Leaking faucet in kitchen</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-error text-white">High</span>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-warning text-white">In Progress</span>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Mike Plumber</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                            <button class="text-primary hover:text-primary-600 mr-3">View</button>
+                                            <button class="text-secondary hover:text-secondary-600">Edit</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">#MT-2024-002</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Oceanview Towers - Unit 15B</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">HVAC system maintenance</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-warning text-white">Medium</span>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">Scheduled</span>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">HVAC Services Inc</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                            <button class="text-primary hover:text-primary-600 mr-3">View</button>
+                                            <button class="text-secondary hover:text-secondary-600">Edit</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Financial Reports Section -->
+                <div id="dashboard-financial" class="p-8 hidden">
+                    <div class="mb-8">
+                        <h1 class="text-2xl font-bold text-gray-900">Financial Reports</h1>
+                        <p class="text-gray-600">Comprehensive financial analytics and reporting</p>
+                    </div>
+
+                    <!-- Report Cards -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                        <div class="bg-white rounded-lg shadow p-6">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-sm font-medium text-gray-600">Monthly Revenue</p>
+                                    <p class="text-2xl font-bold text-gray-900">R 2.4M</p>
+                                    <p class="text-sm text-success">+15% from last month</p>
+                                </div>
+                                <div class="w-12 h-12 bg-success bg-opacity-10 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-arrow-up text-success text-xl"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-lg shadow p-6">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-sm font-medium text-gray-600">Outstanding Invoices</p>
+                                    <p class="text-2xl font-bold text-gray-900">R 145K</p>
+                                    <p class="text-sm text-warning">12 overdue payments</p>
+                                </div>
+                                <div class="w-12 h-12 bg-warning bg-opacity-10 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-exclamation-triangle text-warning text-xl"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-lg shadow p-6">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-sm font-medium text-gray-600">Collection Rate</p>
+                                    <p class="text-2xl font-bold text-gray-900">92%</p>
+                                    <p class="text-sm text-success">Above industry average</p>
+                                </div>
+                                <div class="w-12 h-12 bg-primary bg-opacity-10 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-chart-pie text-primary text-xl"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Report Generation -->
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <div class="bg-white rounded-lg shadow p-6">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-4">Generate Reports</h3>
+                            <div class="space-y-4">
+                                <div class="flex items-center justify-between p-3 border border-gray-200 rounded-lg hover:border-primary transition-colors cursor-pointer">
+                                    <div class="flex items-center">
+                                        <i class="fas fa-file-pdf text-error mr-3"></i>
+                                        <span class="font-medium text-gray-900">Monthly Financial Statement</span>
+                                    </div>
+                                    <button class="text-primary hover:text-primary-600">
+                                        <i class="fas fa-download"></i>
+                                    </button>
+                                </div>
+                                <div class="flex items-center justify-between p-3 border border-gray-200 rounded-lg hover:border-primary transition-colors cursor-pointer">
+                                    <div class="flex items-center">
+                                        <i class="fas fa-file-excel text-success mr-3"></i>
+                                        <span class="font-medium text-gray-900">Levy Collection Report</span>
+                                    </div>
+                                    <button class="text-primary hover:text-primary-600">
+                                        <i class="fas fa-download"></i>
+                                    </button>
+                                </div>
+                                <div class="flex items-center justify-between p-3 border border-gray-200 rounded-lg hover:border-primary transition-colors cursor-pointer">
+                                    <div class="flex items-center">
+                                        <i class="fas fa-chart-bar text-primary mr-3"></i>
+                                        <span class="font-medium text-gray-900">Property Performance Analytics</span>
+                                    </div>
+                                    <button class="text-primary hover:text-primary-600">
+                                        <i class="fas fa-download"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Property Performance Chart -->
+                        <div class="bg-white rounded-lg shadow p-6">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-4">Property Performance</h3>
+                            <canvas id="performanceChart" width="400" height="200"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional sections would be hidden by default and shown when navigating -->
+                <div id="dashboard-rental" class="p-8 hidden">
+                    <h1 class="text-2xl font-bold text-gray-900 mb-4">Rental Management</h1>
+                    <p class="text-gray-600">Manage your rental portfolio with comprehensive tools and insights.</p>
+                    <!-- Content for rental management would go here -->
+                </div>
+
+                <div id="dashboard-compliance" class="p-8 hidden">
+                    <h1 class="text-2xl font-bold text-gray-900 mb-4">Compliance & Governance</h1>
+                    <p class="text-gray-600">Track compliance requirements and manage governance processes.</p>
+                    <!-- Content for compliance would go here -->
+                </div>
+
+                <div id="dashboard-users" class="p-8 hidden">
+                    <h1 class="text-2xl font-bold text-gray-900 mb-4">User Management</h1>
+                    <p class="text-gray-600">Manage user accounts, roles, and permissions across your organization.</p>
+                    <!-- Content for user management would go here -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- @END_COMPONENT: Dashboard -->
+
+    <script>
+        // TODO: Implement business logic, API calls, and state management
+        
+        (function() {
+            // Application state management
+            const appState = {
+                currentView: 'landing',
+                currentDashboardSection: 'overview',
+                user: null
+            };
+
+            // Modal functions
+            window.showDemo = function() {
+                document.getElementById('demo-modal').classList.remove('hidden');
+            };
+
+            window.hideDemo = function() {
+                document.getElementById('demo-modal').classList.add('hidden');
+            };
+
+            window.showLogin = function() {
+                document.getElementById('login-modal').classList.remove('hidden');
+            };
+
+            window.hideLogin = function() {
+                document.getElementById('login-modal').classList.add('hidden');
+            };
+
+            window.enterDashboard = function(type) {
+                document.getElementById('landing-page').classList.add('hidden');
+                document.getElementById('login-modal').classList.add('hidden');
+                document.getElementById('dashboard').classList.remove('hidden');
+                appState.currentView = 'dashboard';
+                showDashboardSection('overview');
+            };
+
+            window.logout = function() {
+                document.getElementById('dashboard').classList.add('hidden');
+                document.getElementById('landing-page').classList.remove('hidden');
+                appState.currentView = 'landing';
+                appState.user = null;
+            };
+
+            window.showDashboardSection = function(section) {
+                // Hide all sections
+                const sections = ['overview', 'community', 'rental', 'maintenance', 'compliance', 'financial', 'users'];
+                sections.forEach(s => {
+                    const element = document.getElementById('dashboard-' + s);
+                    if (element) {
+                        element.classList.add('hidden');
+                    }
+                });
+
+                // Show selected section
+                const targetSection = document.getElementById('dashboard-' + section);
+                if (targetSection) {
+                    targetSection.classList.remove('hidden');
+                }
+
+                // Update navigation
+                document.querySelectorAll('nav button').forEach(btn => {
+                    btn.classList.remove('active-nav', 'bg-primary', 'text-white');
+                    btn.classList.add('text-gray-700');
+                });
+
+                const activeBtn = document.querySelector(`nav button[onclick="showDashboardSection('${section}')"]`);
+                if (activeBtn) {
+                    activeBtn.classList.add('active-nav', 'bg-primary', 'text-white');
+                    activeBtn.classList.remove('text-gray-700');
+                }
+
+                appState.currentDashboardSection = section;
+            };
+
+            // Initialize charts when dashboard loads
+            function initializeCharts() {
+                // Revenue Chart
+                const revenueCtx = document.getElementById('revenueChart');
+                if (revenueCtx) {
+                    new Chart(revenueCtx, {
+                        type: 'line',
+                        data: {
+                            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                            datasets: [{
+                                label: 'Revenue (R)',
+                                data: [2100000, 2250000, 2180000, 2400000, 2350000, 2420000],
+                                borderColor: '#036666',
+                                backgroundColor: 'rgba(3, 102, 102, 0.1)',
+                                tension: 0.4
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            scales: {
+                                y: {
+                                    beginAtZero: false,
+                                    ticks: {
+                                        callback: function(value) {
+                                            return 'R' + (value / 1000000).toFixed(1) + 'M';
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    });
+                }
+
+                // Portfolio Chart
+                const portfolioCtx = document.getElementById('portfolioChart');
+                if (portfolioCtx) {
+                    new Chart(portfolioCtx, {
+                        type: 'doughnut',
+                        data: {
+                            labels: ['Residential', 'Commercial', 'Mixed Use', 'Industrial'],
+                            datasets: [{
+                                data: [65, 20, 10, 5],
+                                backgroundColor: ['#036666', '#30B2BE', '#10B981', '#F59E0B']
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false
+                        }
+                    });
+                }
+
+                // Performance Chart
+                const performanceCtx = document.getElementById('performanceChart');
+                if (performanceCtx) {
+                    new Chart(performanceCtx, {
+                        type: 'bar',
+                        data: {
+                            labels: ['Q1 2024', 'Q2 2024', 'Q3 2024', 'Q4 2024'],
+                            datasets: [{
+                                label: 'Occupancy Rate (%)',
+                                data: [92, 89, 94, 91],
+                                backgroundColor: '#30B2BE',
+                            }, {
+                                label: 'Collection Rate (%)',
+                                data: [88, 91, 92, 94],
+                                backgroundColor: '#036666',
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            scales: {
+                                y: {
+                                    beginAtZero: true,
+                                    max: 100
+                                }
+                            }
+                        }
+                    });
+                }
+            }
+
+            // Initialize charts on page load
+            document.addEventListener('DOMContentLoaded', function() {
+                setTimeout(initializeCharts, 100);
+            });
+
+            // Re-initialize charts when entering dashboard
+            const originalEnterDashboard = window.enterDashboard;
+            window.enterDashboard = function(type) {
+                originalEnterDashboard(type);
+                setTimeout(initializeCharts, 100);
+            };
+        })();
+    </script>
+
+    <!-- Custom Styles -->
+    <style>
+        .active-nav {
+            background-color: #036666 !important;
+            color: white !important;
+        }
+        
+        .hero-section {
+            background-attachment: fixed;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-section {
+                background-attachment: scroll;
+            }
+        }
+    </style>
+</body>
+</html>

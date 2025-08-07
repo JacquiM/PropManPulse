@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeConnectU - Advanced Property Management Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'wcu-blue': '#2563EB',
+                        'wcu-orange': '#EA580C',
+                        'wcu-light-blue': '#DBEAFE',
+                        'wcu-dark-blue': '#1E40AF'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-50 font-sans">
+
+<!-- @COMPONENT: Navigation Header [fixed header with logo and navigation] -->
+<header class="bg-white shadow-sm border-b border-gray-200 fixed top-0 left-0 right-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+            <div class="flex items-center">
+                <!-- WeConnectU Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <div class="w-10 h-10 bg-wcu-blue rounded-lg flex items-center justify-center mr-3">
+                        <i class="fas fa-building text-white text-lg"></i>
+                    </div>
+                    <span class="text-xl font-bold text-gray-900">WeConnectU</span>
+                </div>
+            </div>
+            
+            <nav class="hidden md:flex space-x-8">
+                <a href="#" class="text-gray-600 hover:text-wcu-blue transition-colors">Solutions</a>
+                <a href="#" class="text-gray-600 hover:text-wcu-blue transition-colors">Features</a>
+                <a href="#" class="text-gray-600 hover:text-wcu-blue transition-colors">Pricing</a>
+                <a href="#" class="text-gray-600 hover:text-wcu-blue transition-colors">Support</a>
+            </nav>
+            
+            <div class="flex items-center space-x-4">
+                <button id="signInBtn" class="text-wcu-blue hover:text-wcu-dark-blue font-medium transition-colors">
+                    Sign In
+                </button>
+                <button id="demoBtn" class="bg-wcu-orange hover:bg-orange-600 text-white px-4 py-2 rounded-lg font-medium transition-colors">
+                    Book Demo
+                </button>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- @END_COMPONENT: Navigation Header -->
+
+<!-- @COMPONENT: Main Application Container [contains all views and modals] -->
+<main class="pt-16 min-h-screen">
+    
+    <!-- @COMPONENT: Landing Page [hero section and features] -->
+    <div id="landingPage" class="landing-view">
+        <!-- Hero Section -->
+        <section class="bg-gradient-to-br from-wcu-blue to-wcu-dark-blue text-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h1 class="text-4xl lg:text-5xl font-bold mb-6 leading-tight">
+                            The most advanced end-to-end ecosystem for the management of
+                        </h1>
+                        <div class="flex flex-wrap gap-4 mb-8">
+                            <span class="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full text-lg font-medium">Community Schemes</span>
+                            <span class="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full text-lg font-medium">Rental Portfolios</span>
+                            <span class="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full text-lg font-medium">Inspection & Maintenance</span>
+                        </div>
+                        <p class="text-xl mb-8 text-blue-100">
+                            Experience the difference with intelligent property management software trusted by 20,000+ property professionals.
+                        </p>
+                        <button id="heroBookDemo" class="bg-wcu-orange hover:bg-orange-600 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors inline-flex items-center">
+                            <i class="fas fa-calendar-alt mr-2"></i>
+                            Book a Demo
+                        </button>
+                    </div>
+                    <!-- Modern property management dashboard illustration -->
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&h=800" alt="Modern property management dashboard interface" class="rounded-xl shadow-2xl w-full" />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Solutions Overview -->
+        <section class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-4">Our solutions at a glance</h2>
+                    <p class="text-xl text-gray-600">Comprehensive tools for every aspect of property management</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Community Management -->
+                    <div class="bg-gray-50 rounded-xl p-8 hover:shadow-lg transition-shadow cursor-pointer" data-module="community">
+                        <!-- Professional property management community interface -->
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&h=400" alt="Community management interface showing body corporate dashboard" class="w-full h-48 object-cover rounded-lg mb-6" />
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Community Management Software</h3>
+                        <p class="text-gray-600 mb-4">for the management of Community schemes (Body corporate & HOA's)</p>
+                        <ul class="text-sm text-gray-500 space-y-2 mb-6">
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Compliance Management</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Financial Reporting</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Automated Levy Processing</li>
+                        </ul>
+                        <button class="text-wcu-blue font-medium hover:text-wcu-dark-blue transition-colors">
+                            Find out more <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+
+                    <!-- Rental Asset Management -->
+                    <div class="bg-gray-50 rounded-xl p-8 hover:shadow-lg transition-shadow cursor-pointer" data-module="rental">
+                        <!-- Modern rental property portfolio dashboard -->
+                        <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&h=400" alt="Rental asset management dashboard with portfolio analytics" class="w-full h-48 object-cover rounded-lg mb-6" />
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Rental Asset Management Software</h3>
+                        <p class="text-gray-600 mb-4">for the management of your residential and commercial properties.</p>
+                        <ul class="text-sm text-gray-500 space-y-2 mb-6">
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Portfolio Management</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Tenant Relations</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Financial Integration</li>
+                        </ul>
+                        <button class="text-wcu-blue font-medium hover:text-wcu-dark-blue transition-colors">
+                            Find out more <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+
+                    <!-- RedRabbit Management -->
+                    <div class="bg-gray-50 rounded-xl p-8 hover:shadow-lg transition-shadow cursor-pointer" data-module="maintenance">
+                        <!-- Property inspection and maintenance workflow interface -->
+                        <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&h=400" alt="Property maintenance management interface with inspection tools" class="w-full h-48 object-cover rounded-lg mb-6" />
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">RedRabbit Management Software</h3>
+                        <p class="text-gray-600 mb-4">for the management of your Inspections and Maintenance.</p>
+                        <ul class="text-sm text-gray-500 space-y-2 mb-6">
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Digital Inspections</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Maintenance Tracking</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Professional Reports</li>
+                        </ul>
+                        <button class="text-wcu-blue font-medium hover:text-wcu-dark-blue transition-colors">
+                            Find out more <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Value Propositions -->
+        <section class="py-20 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-4">Your biggest challenges, solved.</h2>
+                    <p class="text-xl text-gray-600">Simple solutions delivered with property management expertise</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-wcu-blue rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-shield-alt text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Compliancy</h3>
+                        <p class="text-gray-600">Efficient compliance management with intuitive monitoring and tracking systems.</p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-wcu-orange rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-chart-line text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Manageability</h3>
+                        <p class="text-gray-600">Real-time KPI tracking and business monitoring with intelligent dashboards.</p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-expand-arrows-alt text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Scalability</h3>
+                        <p class="text-gray-600">Sustainable growth through efficient systems and collaborative workflows.</p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-yellow-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-dollar-sign text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Profitability</h3>
+                        <p class="text-gray-600">Boost your bottom line with comprehensive property management solutions.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Statistics Counter -->
+        <section class="py-20 bg-wcu-blue text-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold mb-4">Join 20,000+ Property Professionals using WeConnectU</h2>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                    <div>
+                        <div class="text-5xl font-bold mb-2">750,000+</div>
+                        <div class="text-xl text-blue-200">Units Under Management</div>
+                    </div>
+                    <div>
+                        <div class="text-5xl font-bold mb-2">2,500+</div>
+                        <div class="text-xl text-blue-200">Clients</div>
+                    </div>
+                    <div>
+                        <div class="text-5xl font-bold mb-2">20,000+</div>
+                        <div class="text-xl text-blue-200">Registered Users</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- @END_COMPONENT: Landing Page -->
+
+    <!-- @COMPONENT: Sign In Modal [module selection interface] -->
+    <div id="signInModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="bg-white rounded-xl shadow-2xl max-w-2xl w-full p-8">
+                <div class="flex justify-between items-center mb-8">
+                    <h2 class="text-2xl font-bold text-gray-900">Sign in to your account</h2>
+                    <button id="closeSignIn" class="text-gray-400 hover:text-gray-600">
+                        <i class="fas fa-times text-xl"></i>
+                    </button>
+                </div>
+                
+                <p class="text-gray-600 mb-8">Please select the account you are registered with to sign in.</p>
+                
+                <div class="grid grid-cols-1 gap-6">
+                    <button class="signin-module-btn border-2 border-gray-200 hover:border-wcu-blue rounded-xl p-6 text-left transition-colors group" data-module="community">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <h3 class="text-lg font-semibold text-gray-900 group-hover:text-wcu-blue transition-colors">Community Management</h3>
+                                <p class="text-sm text-gray-600">Software</p>
+                                <p class="text-xs text-wcu-blue font-medium mt-2">Sign in</p>
+                            </div>
+                            <i class="fas fa-users text-3xl text-gray-300 group-hover:text-wcu-blue transition-colors"></i>
+                        </div>
+                    </button>
+                    
+                    <button class="signin-module-btn border-2 border-gray-200 hover:border-wcu-orange rounded-xl p-6 text-left transition-colors group" data-module="rental">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <h3 class="text-lg font-semibold text-gray-900 group-hover:text-wcu-orange transition-colors">Rental Asset Management</h3>
+                                <p class="text-sm text-gray-600">Software</p>
+                                <p class="text-xs text-wcu-orange font-medium mt-2">Sign in</p>
+                            </div>
+                            <i class="fas fa-building text-3xl text-gray-300 group-hover:text-wcu-orange transition-colors"></i>
+                        </div>
+                    </button>
+                    
+                    <button class="signin-module-btn border-2 border-gray-200 hover:border-green-500 rounded-xl p-6 text-left transition-colors group" data-module="maintenance">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <h3 class="text-lg font-semibold text-gray-900 group-hover:text-green-500 transition-colors">Inspections & Maintenance</h3>
+                                <p class="text-sm text-gray-600">Management Software</p>
+                                <p class="text-xs text-green-500 font-medium mt-2">Sign in</p>
+                            </div>
+                            <i class="fas fa-tools text-3xl text-gray-300 group-hover:text-green-500 transition-colors"></i>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- @END_COMPONENT: Sign In Modal -->
+
+    <!-- @COMPONENT: Demo Booking Modal [lead capture form] -->
+    <div id="demoModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="bg-white rounded-xl shadow-2xl max-w-lg w-full p-8">
+                <div class="flex justify-between items-center mb-8">
+                    <h2 class="text-2xl font-bold text-gray-900">Book a Demo!</h2>
+                    <button id="closeDemoModal" class="text-gray-400 hover:text-gray-600">
+                        <i class="fas fa-times text-xl"></i>
+                    </button>
+                </div>
+                
+                <form id="demoForm" class="space-y-6">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                        <input type="email" data-mock="true" placeholder="your.email@company.com" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-wcu-blue focus:border-transparent" required>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">First Name</label>
+                            <input type="text" data-mock="true" placeholder="John" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-wcu-blue focus:border-transparent" required>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Last Name</label>
+                            <input type="text" data-mock="true" placeholder="Smith" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-wcu-blue focus:border-transparent" required>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
+                        <input type="tel" data-mock="true" placeholder="+27 123 456 7890" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-wcu-blue focus:border-transparent" required>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Company</label>
+                        <input type="text" data-mock="true" placeholder="Your Property Management Company" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-wcu-blue focus:border-transparent" required>
+                    </div>
+                    
+                    <div class="flex items-start">
+                        <input type="checkbox" id="termsAccept" class="mt-1 mr-3" required>
+                        <label for="termsAccept" class="text-sm text-gray-600">
+                            I have read and accept WeConnectU's <a href="#" class="text-wcu-blue hover:underline">Terms of Use</a> and <a href="#" class="text-wcu-blue hover:underline">Privacy Policy</a>
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="w-full bg-wcu-orange hover:bg-orange-600 text-white py-3 rounded-lg font-semibold transition-colors">
+                        Book Demo
+                    </button>
+                </form>
+                
+                <!-- Success Message (initially hidden) -->
+                <div id="demoSuccess" class="text-center hidden">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-check text-green-500 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Thank you!</h3>
+                    <p class="text-gray-600 mb-4">One of our Business Development Managers will be in touch soon.</p>
+                    <p class="text-sm text-gray-500">Our contact details are below if you need to get in touch with us sooner.</p>
+                    <p class="text-wcu-blue font-semibold">086 999 0756</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- @END_COMPONENT: Demo Booking Modal -->
+
+    <!-- @COMPONENT: Dashboard Interface [role-based property management dashboard] -->
+    <div id="dashboardView" class="dashboard-view hidden">
+        <!-- Dashboard Sidebar -->
+        <div class="fixed inset-y-16 left-0 w-64 bg-white shadow-lg border-r border-gray-200 z-40">
+            <div class="p-6 border-b border-gray-200">
+                <div class="flex items-center space-x-3">
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&h=100" alt="User profile" class="w-10 h-10 rounded-full object-cover" />
+                    <div>
+                        <p class="font-semibold text-gray-900" data-bind="user.name" data-mock="true">Sarah Williams</p>
+                        <p class="text-sm text-gray-500" data-bind="user.role" data-mock="true">Property Manager</p>
+                    </div>
+                </div>
+            </div>
+            
+            <nav class="p-4 space-y-2">
+                <a href="#" class="dashboard-nav-item active flex items-center space-x-3 px-4 py-3 rounded-lg text-wcu-blue bg-wcu-light-blue">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#" class="dashboard-nav-item flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600 hover:text-wcu-blue hover:bg-gray-50 transition-colors">
+                    <i class="fas fa-building"></i>
+                    <span>Properties</span>
+                </a>
+                <a href="#" class="dashboard-nav-item flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600 hover:text-wcu-blue hover:bg-gray-50 transition-colors">
+                    <i class="fas fa-users"></i>
+                    <span>Tenants</span>
+                </a>
+                <a href="#" class="dashboard-nav-item flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600 hover:text-wcu-blue hover:bg-gray-50 transition-colors">
+                    <i class="fas fa-user-tie"></i>
+                    <span>Owners</span>
+                </a>
+                <a href="#" class="dashboard-nav-item flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600 hover:text-wcu-blue hover:bg-gray-50 transition-colors">
+                    <i class="fas fa-tools"></i>
+                    <span>Maintenance</span>
+                </a>
+                <a href="#" class="dashboard-nav-item flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600 hover:text-wcu-blue hover:bg-gray-50 transition-colors">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>Reports</span>
+                </a>
+                <a href="#" class="dashboard-nav-item flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600 hover:text-wcu-blue hover:bg-gray-50 transition-colors">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Compliance</span>
+                </a>
+                <a href="#" class="dashboard-nav-item flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600 hover:text-wcu-blue hover:bg-gray-50 transition-colors">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+            
+            <div class="absolute bottom-4 left-4 right-4">
+                <button id="signOutBtn" class="w-full flex items-center justify-center space-x-2 px-4 py-2 text-gray-600 hover:text-red-600 transition-colors">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Sign Out</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Dashboard Main Content -->
+        <div class="ml-64 p-8">
+            <!-- Dashboard Header -->
+            <div class="mb-8">
+                <h1 class="text-3xl font-bold text-gray-900 mb-2">Property Management Dashboard</h1>
+                <p class="text-gray-600">Welcome back! Here's what's happening with your properties today.</p>
+            </div>
+
+            <!-- Key Metrics Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-sm font-medium text-gray-600">Total Properties</p>
+                            <p class="text-3xl font-bold text-gray-900" data-mock="true">156</p>
+                            <p class="text-sm text-green-600 mt-1">
+                                <i class="fas fa-arrow-up mr-1"></i>+3 this month
+                            </p>
+                        </div>
+                        <div class="w-12 h-12 bg-wcu-light-blue rounded-lg flex items-center justify-center">
+                            <i class="fas fa-building text-wcu-blue text-xl"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-sm font-medium text-gray-600">Occupied Units</p>
+                            <p class="text-3xl font-bold text-gray-900" data-mock="true">142</p>
+                            <p class="text-sm text-green-600 mt-1">
+                                91% occupancy rate
+                            </p>
+                        </div>
+                        <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-users text-green-600 text-xl"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-sm font-medium text-gray-600">Monthly Revenue</p>
+                            <p class="text-3xl font-bold text-gray-900" data-mock="true">R2.8M</p>
+                            <p class="text-sm text-green-600 mt-1">
+                                <i class="fas fa-arrow-up mr-1"></i>+12% vs last month
+                            </p>
+                        </div>
+                        <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-dollar-sign text-wcu-orange text-xl"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-sm font-medium text-gray-600">Open Tickets</p>
+                            <p class="text-3xl font-bold text-gray-900" data-mock="true">23</p>
+                            <p class="text-sm text-yellow-600 mt-1">
+                                5 urgent
+                            </p>
+                        </div>
+                        <div class="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-tools text-yellow-600 text-xl"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Recent Activity -->
+                <div class="lg:col-span-2">
+                    <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+                        <div class="flex justify-between items-center mb-6">
+                            <h2 class="text-xl font-semibold text-gray-900">Recent Activity</h2>
+                            <button class="text-wcu-blue hover:text-wcu-dark-blue text-sm font-medium">View All</button>
+                        </div>
+                        
+                        <!-- @MAP: activities.map(activity => ( -->
+                        <div class="space-y-4">
+                            <div class="flex items-start space-x-4 p-4 hover:bg-gray-50 rounded-lg transition-colors" data-mock="true">
+                                <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-plus text-blue-600"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <p class="font-medium text-gray-900">New maintenance request</p>
+                                    <p class="text-sm text-gray-600">Plumbing issue reported at Ocean View Apartments #302</p>
+                                    <p class="text-xs text-gray-500 mt-1">2 minutes ago</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start space-x-4 p-4 hover:bg-gray-50 rounded-lg transition-colors" data-mock="true">
+                                <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-check text-green-600"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <p class="font-medium text-gray-900">Inspection completed</p>
+                                    <p class="text-sm text-gray-600">Monthly inspection for Sunset Gardens completed</p>
+                                    <p class="text-xs text-gray-500 mt-1">1 hour ago</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start space-x-4 p-4 hover:bg-gray-50 rounded-lg transition-colors" data-mock="true">
+                                <div class="w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-exclamation text-orange-600"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <p class="font-medium text-gray-900">Compliance alert</p>
+                                    <p class="text-sm text-gray-600">Fire safety certificate renewal due in 7 days</p>
+                                    <p class="text-xs text-gray-500 mt-1">3 hours ago</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- @END_MAP )) -->
+                    </div>
+                </div>
+
+                <!-- Quick Stats -->
+                <div class="space-y-6">
+                    <!-- Compliance Status -->
+                    <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Compliance Status</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between text-sm mb-2">
+                                    <span class="text-gray-600">Overall Compliance</span>
+                                    <span class="font-medium text-green-600" data-mock="true">94%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                    <div class="bg-green-500 h-2 rounded-full" style="width: 94%"></div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <div class="flex justify-between text-sm mb-2">
+                                    <span class="text-gray-600">Fire Safety</span>
+                                    <span class="font-medium text-yellow-600" data-mock="true">87%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                    <div class="bg-yellow-500 h-2 rounded-full" style="width: 87%"></div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <div class="flex justify-between text-sm mb-2">
+                                    <span class="text-gray-600">Electrical</span>
+                                    <span class="font-medium text-green-600" data-mock="true">98%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                    <div class="bg-green-500 h-2 rounded-full" style="width: 98%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Top Properties -->
+                    <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Top Performing Properties</h3>
+                        <div class="space-y-3">
+                            <!-- @MAP: topProperties.map(property => ( -->
+                            <div class="flex items-center justify-between" data-mock="true">
+                                <div>
+                                    <p class="font-medium text-gray-900">Ocean View Apartments</p>
+                                    <p class="text-sm text-gray-600">98% occupancy</p>
+                                </div>
+                                <div class="text-right">
+                                    <p class="font-medium text-gray-900">R428K</p>
+                                    <p class="text-sm text-green-600">+5.2%</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center justify-between" data-mock="true">
+                                <div>
+                                    <p class="font-medium text-gray-900">Sunset Gardens</p>
+                                    <p class="text-sm text-gray-600">95% occupancy</p>
+                                </div>
+                                <div class="text-right">
+                                    <p class="font-medium text-gray-900">R312K</p>
+                                    <p class="text-sm text-green-600">+3.8%</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center justify-between" data-mock="true">
+                                <div>
+                                    <p class="font-medium text-gray-900">City Central Plaza</p>
+                                    <p class="text-sm text-gray-600">92% occupancy</p>
+                                </div>
+                                <div class="text-right">
+                                    <p class="font-medium text-gray-900">R255K</p>
+                                    <p class="text-sm text-red-600">-1.2%</p>
+                                </div>
+                            </div>
+                            <!-- @END_MAP )) -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Properties Table -->
+            <div class="mt-8">
+                <div class="bg-white rounded-xl shadow-sm border border-gray-200">
+                    <div class="px-6 py-4 border-b border-gray-200">
+                        <div class="flex justify-between items-center">
+                            <h2 class="text-xl font-semibold text-gray-900">Recent Properties</h2>
+                            <div class="flex space-x-3">
+                                <button class="px-4 py-2 text-sm border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors">
+                                    <i class="fas fa-filter mr-2"></i>Filter
+                                </button>
+                                <button class="px-4 py-2 text-sm bg-wcu-blue text-white rounded-lg hover:bg-wcu-dark-blue transition-colors">
+                                    <i class="fas fa-plus mr-2"></i>Add Property
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="overflow-x-auto">
+                        <table class="w-full">
+                            <thead class="bg-gray-50">
+                                <tr>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Property</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Type</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Occupancy</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Revenue</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white divide-y divide-gray-200">
+                                <!-- @MAP: properties.map(property => ( -->
+                                <tr class="hover:bg-gray-50" data-mock="true">
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="flex items-center">
+                                            <!-- Modern apartment building exterior -->
+                                            <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=80&h=80" alt="Property thumbnail" class="w-12 h-12 rounded-lg object-cover" />
+                                            <div class="ml-4">
+                                                <div class="text-sm font-medium text-gray-900">Ocean View Apartments</div>
+                                                <div class="text-sm text-gray-500">123 Ocean Drive, Cape Town</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Residential</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">45/48 (94%)</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">R428,500</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="inline-flex px-2 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-800">
+                                            Excellent
+                                        </span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                        <button class="text-wcu-blue hover:text-wcu-dark-blue mr-3">View</button>
+                                        <button class="text-gray-600 hover:text-gray-900">Edit</button>
+                                    </td>
+                                </tr>
+                                
+                                <tr class="hover:bg-gray-50" data-mock="true">
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="flex items-center">
+                                            <!-- Modern residential estate with gardens -->
+                                            <img src="https://pixabay.com/get/g0abd2405c0c14d212c02c6bd7eb96fd79db17552a56efc3eb74deca40fde94c91f11b8fc5443570fa3726fe31f4d49825a2daadddf4e7971df6cee9eb4e8df5a_1280.jpg" alt="Property thumbnail" class="w-12 h-12 rounded-lg object-cover" />
+                                            <div class="ml-4">
+                                                <div class="text-sm font-medium text-gray-900">Sunset Gardens</div>
+                                                <div class="text-sm text-gray-500">456 Garden Route, Stellenbosch</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Residential</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">28/32 (88%)</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">R312,000</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="inline-flex px-2 py-1 text-xs font-semibold rounded-full bg-yellow-100 text-yellow-800">
+                                            Good
+                                        </span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                        <button class="text-wcu-blue hover:text-wcu-dark-blue mr-3">View</button>
+                                        <button class="text-gray-600 hover:text-gray-900">Edit</button>
+                                    </td>
+                                </tr>
+                                
+                                <tr class="hover:bg-gray-50" data-mock="true">
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="flex items-center">
+                                            <!-- Modern commercial office building -->
+                                            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=80&h=80" alt="Property thumbnail" class="w-12 h-12 rounded-lg object-cover" />
+                                            <div class="ml-4">
+                                                <div class="text-sm font-medium text-gray-900">City Central Plaza</div>
+                                                <div class="text-sm text-gray-500">789 Central Ave, Johannesburg</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Commercial</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">18/24 (75%)</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">R255,800</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="inline-flex px-2 py-1 text-xs font-semibold rounded-full bg-red-100 text-red-800">
+                                            Needs Attention
+                                        </span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                        <button class="text-wcu-blue hover:text-wcu-dark-blue mr-3">View</button>
+                                        <button class="text-gray-600 hover:text-gray-900">Edit</button>
+                                    </td>
+                                </tr>
+                                <!-- @END_MAP )) -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- @END_COMPONENT: Dashboard Interface -->
+
+</main>
+<!-- @END_COMPONENT: Main Application Container -->
+
+<script>
+(function() {
+    // TODO: Implement proper authentication, role-based access control, and API integrations
+    
+    // State management
+    let currentView = 'landing';
+    let currentModule = null;
+    let isAuthenticated = false;
+    
+    // DOM Elements
+    const landingPage = document.getElementById('landingPage');
+    const dashboardView = document.getElementById('dashboardView');
+    const signInModal = document.getElementById('signInModal');
+    const demoModal = document.getElementById('demoModal');
+    const demoForm = document.getElementById('demoForm');
+    const demoSuccess = document.getElementById('demoSuccess');
+    
+    // Navigation functions
+    function showView(view) {
+        // Hide all views
+        landingPage.classList.add('hidden');
+        dashboardView.classList.add('hidden');
+        
+        // Show selected view
+        if (view === 'landing') {
+            landingPage.classList.remove('hidden');
+        } else if (view === 'dashboard') {
+            dashboardView.classList.remove('hidden');
+        }
+        
+        currentView = view;
+    }
+    
+    function showModal(modalElement) {
+        modalElement.classList.remove('hidden');
+    }
+    
+    function hideModal(modalElement) {
+        modalElement.classList.add('hidden');
+    }
+    
+    // Demo booking functionality
+    function handleDemoSubmission(e) {
+        e.preventDefault();
+        
+        // TODO: Implement actual form submission to backend API
+        // Simulate form processing
+        setTimeout(() => {
+            demoForm.classList.add('hidden');
+            demoSuccess.classList.remove('hidden');
+        }, 1000);
+    }
+    
+    // Authentication simulation
+    function handleModuleSignIn(module) {
+        // TODO: Implement real authentication with backend
+        currentModule = module;
+        isAuthenticated = true;
+        hideModal(signInModal);
+        showView('dashboard');
+        
+        // Update dashboard based on selected module
+        updateDashboardForModule(module);
+    }
+    
+    function updateDashboardForModule(module) {
+        // TODO: Load module-specific data and update UI accordingly
+        console.log(`Loading ${module} module dashboard`);
+        
+        // This would typically involve API calls to load:
+        // - Module-specific navigation items
+        // - Relevant KPIs and metrics
+        // - Module-specific property lists
+        // - Role-based permissions
+    }
+    
+    // Event Listeners
+    document.getElementById('signInBtn').addEventListener('click', () => {
+        showModal(signInModal);
+    });
+    
+    document.getElementById('demoBtn').addEventListener('click', () => {
+        showModal(demoModal);
+    });
+    
+    document.getElementById('heroBookDemo').addEventListener('click', () => {
+        showModal(demoModal);
+    });
+    
+    document.getElementById('closeSignIn').addEventListener('click', () => {
+        hideModal(signInModal);
+    });
+    
+    document.getElementById('closeDemoModal').addEventListener('click', () => {
+        hideModal(demoModal);
+        // Reset form state
+        demoForm.classList.remove('hidden');
+        demoSuccess.classList.add('hidden');
+        demoForm.reset();
+    });
+    
+    document.getElementById('signOutBtn').addEventListener('click', () => {
+        isAuthenticated = false;
+        currentModule = null;
+        showView('landing');
+    });
+    
+    // Module sign-in buttons
+    document.querySelectorAll('.signin-module-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const module = btn.getAttribute('data-module');
+            handleModuleSignIn(module);
+        });
+    });
+    
+    // Demo form submission
+    demoForm.addEventListener('submit', handleDemoSubmission);
+    
+    // Solution cards hover interaction
+    document.querySelectorAll('[data-module]').forEach(card => {
+        if (!card.classList.contains('signin-module-btn')) {
+            card.addEventListener('click', () => {
+                showModal(signInModal);
+            });
+        }
+    });
+    
+    // Dashboard navigation
+    document.querySelectorAll('.dashboard-nav-item').forEach(item => {
+        item.addEventListener('click', (e) => {
+            e.preventDefault();
+            
+            // Remove active class from all items
+            document.querySelectorAll('.dashboard-nav-item').forEach(nav => {
+                nav.classList.remove('active', 'text-wcu-blue', 'bg-wcu-light-blue');
+                nav.classList.add('text-gray-600');
+            });
+            
+            // Add active class to clicked item
+            item.classList.add('active', 'text-wcu-blue', 'bg-wcu-light-blue');
+            item.classList.remove('text-gray-600');
+            
+            // TODO: Load appropriate dashboard section content
+        });
+    });
+    
+    // Close modals when clicking outside
+    window.addEventListener('click', (e) => {
+        if (e.target === signInModal) {
+            hideModal(signInModal);
+        }
+        if (e.target === demoModal) {
+            hideModal(demoModal);
+            demoForm.classList.remove('hidden');
+            demoSuccess.classList.add('hidden');
+            demoForm.reset();
+        }
+    });
+    
+    // Initialize application
+    showView('landing');
+    
+})();
+</script>
+
+</body>
+</html>
