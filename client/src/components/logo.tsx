@@ -23,6 +23,10 @@ export default function Logo({ size = 'md', showText = true, className = '' }: L
         src="/logo.png" 
         alt="Property Management Pulse" 
         className={`${sizeClasses[size]} rounded-lg`}
+        onError={(e) => {
+          // Fallback to SVG if PNG not found
+          (e.target as HTMLImageElement).src = "/logo.svg";
+        }}
       />
       {showText && (
         <span className={`ml-3 font-bold text-gray-900 ${textSizeClasses[size]}`}>
