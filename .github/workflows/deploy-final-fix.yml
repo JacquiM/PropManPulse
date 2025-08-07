@@ -1,0 +1,95 @@
+name: Deploy to GitHub Pages - FIXED
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+
+    - name: Install dependencies
+      run: |
+        npm install --force --legacy-peer-deps
+
+    - name: Build application
+      run: |
+        npm run build:client
+        echo "Build completed, checking output..."
+        ls -la dist/public/
+      env:
+        NODE_ENV: production
+
+    - name: Create 404.html for SPA routing
+      run: |
+        cat > dist/public/404.html << 'EOF'
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="utf-8">
+          <title>Property Management Pulse</title>
+          <script>
+            var pathSegmentsToKeep = 1;
+            var l = window.location;
+            l.replace(
+              l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+              l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
+              l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
+              (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+              l.hash
+            );
+          </script>
+        </head>
+        <body></body>
+        </html>
+        EOF
+
+    - name: Verify build output
+      run: |
+        echo "=== Checking required files ==="
+        if [ -f dist/public/index.html ]; then
+          echo "✅ index.html found"
+        else
+          echo "❌ index.html NOT found"
+          exit 1
+        fi
+        
+        if [ -f dist/public/404.html ]; then
+          echo "✅ 404.html found"
+        else
+          echo "❌ 404.html NOT found"
+        fi
+        
+        echo "=== All files in dist/public ==="
+        find dist/public -type f | head -20
+
+    - name: Setup GitHub Pages
+      uses: actions/configure-pages@v4
+
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: './dist/public'
+
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4
