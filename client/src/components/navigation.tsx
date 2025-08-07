@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Activity, Menu } from "lucide-react";
+import { Menu } from "lucide-react";
+import Logo from "@/components/logo";
 
 interface NavigationProps {
   onLogin: () => void;
@@ -24,10 +25,7 @@ export default function Navigation({ onLogin }: NavigationProps) {
           {/* Logo */}
           <div className="flex items-center">
             <div className="flex-shrink-0 flex items-center">
-              <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-                <Activity className="h-6 w-6 text-white" />
-              </div>
-              <span className="ml-3 text-xl font-bold text-gray-900">PropManPulse</span>
+              <Logo size="md" />
             </div>
           </div>
 
@@ -59,10 +57,7 @@ export default function Navigation({ onLogin }: NavigationProps) {
               </SheetTrigger>
               <SheetContent side="right" className="w-[280px]">
                 <div className="flex items-center mb-8">
-                  <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-                    <Activity className="h-5 w-5 text-white" />
-                  </div>
-                  <span className="ml-3 text-lg font-bold text-gray-900">PropManPulse</span>
+                  <Logo size="sm" />
                 </div>
                 <div className="space-y-4">
                   {navigationItems.map((item) => (
